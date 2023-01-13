@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+enum ThemeOptions {
+  light,
+  dark,
+  semi,
+  auto,
+}
+
 /// App's global theme.
 class AppTheme {
   late TextStyle _initialTextStyle;
-
   AppTheme({
     TextStyle? initialTextStyle,
   }) {
@@ -82,5 +88,33 @@ class AppTheme {
         space: 5.0,
       ),
     );
+  }
+}
+
+extension ThemeOption on AppTheme {
+  static const Map<String, ThemeOptions> _strings = {
+    'light': ThemeOptions.light,
+    'dark': ThemeOptions.dark,
+    'auto': ThemeOptions.auto,
+    'semi': ThemeOptions.semi,
+  };
+  Map<ThemeOptions, ThemeData> themes() {
+    return {
+      ThemeOptions.light: globalTheme(),
+      ThemeOptions.dark: ThemeData.dark(),
+      ThemeOptions.semi: globalTheme(),
+    };
+  }
+
+  ThemeOptions fromString(String option) =>
+      _strings[option] ?? ThemeOptions.auto;
+
+  String toOptionString(ThemeOptions option) {
+    for (String val in _strings.keys) {
+      if (_strings[val] == option) {
+        return val;
+      }
+    }
+    return 'auto';
   }
 }
