@@ -6,6 +6,7 @@ class MinimalistButton extends StatelessWidget {
     super.key,
     this.decoration,
     this.padding,
+    this.onTap,
     required this.icon,
   });
 
@@ -13,15 +14,20 @@ class MinimalistButton extends StatelessWidget {
   final IconData icon;
   final EdgeInsets? padding;
 
+  final VoidCallback? onTap;
+
   @override
   Widget build(BuildContext context) {
     BoxDecoration minDecoration =
         (decoration ?? const BoxDecoration()).copyWith(
-      border: Border.all(color: Colors.white),
+      border: Border.all(color: Colors.white, style: BorderStyle.solid),
       borderRadius: BorderRadius.circular(10),
     );
     return RippleButton(
-      customBorder: minDecoration.border,
+      onTap: onTap,
+      customBorder: RoundedRectangleBorder(
+        borderRadius: minDecoration.borderRadius ?? BorderRadius.circular(10),
+      ),
       child: Container(
         decoration: minDecoration,
         padding: padding,

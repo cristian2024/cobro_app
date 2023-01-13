@@ -6,6 +6,7 @@ class RippleButton extends StatelessWidget {
     this.splashColor,
     this.backgroundColor,
     this.customBorder,
+    this.onTap,
     required this.child,
   });
 
@@ -14,7 +15,10 @@ class RippleButton extends StatelessWidget {
   final Color? backgroundColor;
   final ShapeBorder? customBorder;
 
+
+  //main values of widget
   final Widget child;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +28,7 @@ class RippleButton extends StatelessWidget {
         color: backgroundColor,
         child: InkWell(
           customBorder: customBorder,
-          onTap: () {},
+          onTap: onTap ?? () {},
           splashColor: splashColor,
           child: child,
         ),
