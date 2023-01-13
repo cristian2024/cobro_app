@@ -1,3 +1,4 @@
+import 'package:cobro_app/repository/initial.repository/initial_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -11,7 +12,11 @@ class RepositoriesConfig extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiRepositoryProvider(
-      providers: const [],
+      providers: [
+        RepositoryProvider(
+          create: (context) => InitialRepository(),
+        ),
+      ],
       child: child,
     );
   }

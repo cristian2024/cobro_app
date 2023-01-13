@@ -1,3 +1,4 @@
+import 'package:cobro_app/bloc/theme/theme_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -11,7 +12,11 @@ class BlocConfig extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: const [],
+      providers: [
+        BlocProvider(
+          create: (context) => ThemeCubit(ThemeData.dark()),
+        ),
+      ],
       child: child,
     );
   }
