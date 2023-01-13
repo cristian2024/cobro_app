@@ -1,4 +1,4 @@
-import 'package:cobro_app/ui/initial.page/initial_page.dart';
+import 'package:cobro_app/ui/main.ui/initial_page.dart';
 import 'package:flutter/material.dart';
 
 class AppRoutes {
