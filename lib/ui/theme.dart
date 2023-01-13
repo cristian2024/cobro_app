@@ -1,3 +1,4 @@
+import 'package:cobro_app/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -6,6 +7,16 @@ enum ThemeOptions {
   dark,
   semi,
   auto,
+}
+
+class AppThemes {
+  static ThemeData darkTheme = ThemeData.dark().copyWith(
+    // backgroundColor: Colors.black,
+    colorScheme: const ColorScheme.dark().copyWith(
+        // background: Colors.black,
+        // background:  const Colors.?
+        ),
+  );
 }
 
 /// App's global theme.
