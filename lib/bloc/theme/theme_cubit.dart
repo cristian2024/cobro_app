@@ -14,4 +14,9 @@ class ThemeCubit extends Cubit<ThemeData> {
     await service.setThemeDataOnStorage(option);
     emit(data);
   }
+
+  void getInitialTheme() async {
+    ThemeData theme = await service.getThemeDataFromStorage();
+    emit(theme);
+  }
 }

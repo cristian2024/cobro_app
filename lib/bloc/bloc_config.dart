@@ -22,7 +22,7 @@ class BlocConfig extends StatelessWidget {
               context,
               listen: false,
             ),
-          ),
+          )..getInitialTheme(),
         ),
       ],
       child: child,

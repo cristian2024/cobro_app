@@ -25,8 +25,9 @@ class ThemeSelector extends StatelessWidget {
                   icon: Icons.light_mode_outlined,
                   padding: const EdgeInsets.all(10),
                   onTap: () {
-                    BlocProvider.of<ThemeCubit>(context)
-                        .changeColorTheme(ThemeOptions.light);
+                    BlocProvider.of<ThemeCubit>(context).changeColorTheme(
+                      ThemeOptions.light,
+                    );
                   },
                 ),
                 MinimalistButton(

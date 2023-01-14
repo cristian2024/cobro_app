@@ -3,12 +3,12 @@ import 'package:cobro_app/ui/theme.dart';
 import 'package:flutter/material.dart';
 
 class ThemeService {
-  static AppTheme _theme = AppTheme();
+  static final AppThemes _theme = AppThemes();
   Future<ThemeData> getThemeDataFromStorage() async {
     String optionStored = (await ThemeStorage.getThemeOption()) ?? 'light';
     ThemeOptions option = _theme.fromString(optionStored);
 
-    return _theme.themes()[option] ?? _theme.globalTheme();
+    return _theme.themes()[option] ?? _theme.globalTheme;
   }
 
   Future<void> setThemeDataOnStorage(ThemeOptions optionTheme) async {
@@ -17,5 +17,5 @@ class ThemeService {
   }
 
   ThemeData getThemeFromOption(ThemeOptions optionTheme) =>
-      _theme.themes()[optionTheme] ?? _theme.globalTheme();
+      _theme.themes()[optionTheme] ?? _theme.globalTheme;
 }

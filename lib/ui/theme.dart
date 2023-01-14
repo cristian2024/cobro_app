@@ -10,7 +10,7 @@ enum ThemeOptions {
 }
 
 class AppThemes {
-  static ThemeData darkTheme = ThemeData.dark().copyWith(
+  static final ThemeData _darkTheme = ThemeData.dark().copyWith(
     // backgroundColor: Colors.black,
     scaffoldBackgroundColor: Colors.grey.shade900,
     appBarTheme: const AppBarTheme(
@@ -27,6 +27,25 @@ class AppThemes {
         // background:  const Colors.?
         ),
   );
+  static final ThemeData _lightTheme = ThemeData.light().copyWith(
+    // backgroundColor: Colors.black,
+    // scaffoldBackgroundColor: Colors.grey.shade900,
+    scaffoldBackgroundColor: Colors.amber,
+    appBarTheme: const AppBarTheme(
+      backgroundColor: CColors.deepViolet,
+    ),
+    drawerTheme: const DrawerThemeData(
+      backgroundColor: CColors.deepViolet,
+    ),
+    iconTheme: const IconThemeData(
+      color: CColors.paleLavender,
+    ),
+    colorScheme: const ColorScheme.dark().copyWith(
+        // background: Colors.black,
+        // background:  const Colors.?
+        ),
+  );
+  ThemeData get globalTheme => _lightTheme;
 }
 
 /// App's global theme.
@@ -112,7 +131,7 @@ class AppTheme {
   }
 }
 
-extension ThemeOption on AppTheme {
+extension ThemeOption on AppThemes {
   static const Map<String, ThemeOptions> _strings = {
     'light': ThemeOptions.light,
     'dark': ThemeOptions.dark,
@@ -121,9 +140,9 @@ extension ThemeOption on AppTheme {
   };
   Map<ThemeOptions, ThemeData> themes() {
     return {
-      ThemeOptions.light: globalTheme(),
-      ThemeOptions.dark: ThemeData.dark(),
-      ThemeOptions.semi: globalTheme(),
+      ThemeOptions.light: AppThemes._lightTheme,
+      ThemeOptions.dark: AppThemes._darkTheme,
+      ThemeOptions.semi: AppThemes._lightTheme,
     };
   }
 
