@@ -8,10 +8,13 @@ class MainDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
       child: SafeArea(
-        child: ListView(
-          children: const [
-            ThemeSelector(),
-          ],
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: ListView(
+            children: const [
+              ThemeSelector(),
+            ],
+          ),
         ),
       ),
     );

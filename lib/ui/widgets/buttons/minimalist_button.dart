@@ -20,7 +20,9 @@ class MinimalistButton extends StatelessWidget {
   Widget build(BuildContext context) {
     BoxDecoration minDecoration =
         (decoration ?? const BoxDecoration()).copyWith(
-      border: Border.all(color: Colors.white, style: BorderStyle.solid),
+      border: Border.all(
+          color: Theme.of(context).iconTheme.color ?? Colors.white,
+          style: BorderStyle.solid),
       borderRadius: BorderRadius.circular(10),
     );
     return RippleButton(
