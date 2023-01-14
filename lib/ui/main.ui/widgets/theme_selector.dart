@@ -1,4 +1,5 @@
 import 'package:cobro_app/bloc/theme/theme_cubit.dart';
+import 'package:cobro_app/ui/theme.dart';
 import 'package:cobro_app/ui/widgets/buttons/minimalist_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -24,9 +25,8 @@ class ThemeSelector extends StatelessWidget {
                   icon: Icons.light_mode_outlined,
                   padding: const EdgeInsets.all(10),
                   onTap: () {
-                    BlocProvider.of<ThemeCubit>(context).changeColorTheme(
-                      ThemeData.light(),
-                    );
+                    BlocProvider.of<ThemeCubit>(context)
+                        .changeColorTheme(ThemeOptions.light);
                   },
                 ),
                 MinimalistButton(
@@ -34,7 +34,7 @@ class ThemeSelector extends StatelessWidget {
                   padding: const EdgeInsets.all(10),
                   onTap: () {
                     BlocProvider.of<ThemeCubit>(context).changeColorTheme(
-                      ThemeData.dark(),
+                      ThemeOptions.dark,
                     );
                   },
                 ),
@@ -42,15 +42,8 @@ class ThemeSelector extends StatelessWidget {
                   icon: Icons.auto_mode_outlined,
                   padding: const EdgeInsets.all(10),
                   onTap: () {
-                    //obtaining the theme value for context
-                    bool isDark = MediaQuery.of(context).platformBrightness ==
-                        Brightness.dark;
-                    ThemeData theme = ThemeData.light();
-                    if (isDark) {
-                      theme = ThemeData.dark();
-                    }
                     BlocProvider.of<ThemeCubit>(context).changeColorTheme(
-                      theme,
+                      ThemeOptions.auto,
                     );
                   },
                 ),

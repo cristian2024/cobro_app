@@ -12,6 +12,16 @@ enum ThemeOptions {
 class AppThemes {
   static ThemeData darkTheme = ThemeData.dark().copyWith(
     // backgroundColor: Colors.black,
+    scaffoldBackgroundColor: Colors.grey.shade900,
+    appBarTheme: const AppBarTheme(
+      backgroundColor: CColors.deepViolet,
+    ),
+    drawerTheme: const DrawerThemeData(
+      backgroundColor: CColors.deepViolet,
+    ),
+    iconTheme: const IconThemeData(
+      color: CColors.paleLavender,
+    ),
     colorScheme: const ColorScheme.dark().copyWith(
         // background: Colors.black,
         // background:  const Colors.?
