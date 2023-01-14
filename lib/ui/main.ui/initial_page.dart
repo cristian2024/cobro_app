@@ -7,7 +7,20 @@ class InitialPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('title')),
+      appBar: AppBar(
+        title: const Text('title'),
+        actions: [
+          Builder(
+            builder: (context) => IconButton(
+              icon: const Icon(
+                Icons.settings_outlined,
+              ),
+              onPressed: () => Scaffold.of(context).openEndDrawer(),
+              tooltip: 'App settings',
+            ),
+          ),
+        ],
+      ),
       endDrawer: const MainDrawer(),
     );
   }

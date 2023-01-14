@@ -11,7 +11,7 @@ enum ThemeOptions {
 
 class AppThemes {
   TextTheme globalTextTheme({required TextTheme initial}) {
-    final TextStyle _initialTextStyle =  GoogleFonts.openSans();
+    final TextStyle _initialTextStyle = GoogleFonts.openSans();
     return initial.copyWith(
       headline1: _initialTextStyle.copyWith(
         fontWeight: FontWeight.w600,
@@ -55,7 +55,10 @@ class AppThemes {
     // backgroundColor: Colors.black,
     scaffoldBackgroundColor: Colors.grey.shade900,
     appBarTheme: const AppBarTheme(
-      backgroundColor: CColors.deepViolet,
+      backgroundColor: Color.fromRGBO(62, 6, 95, 1),
+      iconTheme:  IconThemeData(
+        color: CColors.paleLavender,
+      ),
     ),
     drawerTheme: const DrawerThemeData(
       backgroundColor: CColors.deepViolet,
@@ -71,6 +74,9 @@ class AppThemes {
     scaffoldBackgroundColor: CColors.paleLavender,
     appBarTheme: const AppBarTheme(
       backgroundColor: CColors.vodka,
+      iconTheme:  IconThemeData(
+        color: CColors.deepViolet,
+      ),
     ),
     drawerTheme: const DrawerThemeData(
       backgroundColor: CColors.vodka,
@@ -85,6 +91,9 @@ class AppThemes {
     scaffoldBackgroundColor: CColors.blueBell,
     appBarTheme: const AppBarTheme(
       backgroundColor: CColors.purpleNavy,
+      iconTheme:  IconThemeData(
+        color: CColors.aliceBlue,
+      ),
     ),
     drawerTheme: const DrawerThemeData(
       backgroundColor: CColors.purpleNavy,
