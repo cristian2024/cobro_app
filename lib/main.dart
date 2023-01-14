@@ -3,7 +3,6 @@ import 'package:cobro_app/bloc/theme/theme_cubit.dart';
 import 'package:cobro_app/providers/profiders_config.dart';
 import 'package:cobro_app/repository/repositories_config.dart';
 import 'package:cobro_app/ui/routes.dart';
-import 'package:cobro_app/ui/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

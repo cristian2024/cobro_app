@@ -44,7 +44,7 @@ class ThemeSelector extends StatelessWidget {
                   padding: const EdgeInsets.all(10),
                   onTap: () {
                     BlocProvider.of<ThemeCubit>(context).changeColorTheme(
-                      ThemeOptions.auto,
+                      ThemeOptions.semi,
                     );
                   },
                 ),
