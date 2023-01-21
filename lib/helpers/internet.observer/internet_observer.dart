@@ -1,7 +1,6 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:async';
 import 'dart:io';
-
+import 'package:cobro_app/bloc/internet.observer/internet_observer_cubit.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 
 class InternetObserver {
@@ -11,10 +10,10 @@ class InternetObserver {
   static InternetObserver get instance => _instance;
 
   final _networkConnectivity = Connectivity();
-  final _controller = StreamController<ConnectivityData>.broadcast();
+  final _controller = StreamController<ConnectivityDataState>.broadcast();
 
   //stream with the connections info
-  Stream<ConnectivityData> get connectionStream => _controller.stream;
+  Stream<ConnectivityDataState> get connectionStream => _controller.stream;
 
   // creates the internet listeners
   void initialise() async {
@@ -35,28 +34,8 @@ class InternetObserver {
       isOnline = false;
     }
     _controller.sink
-        .add(ConnectivityData(connectivity: result, isOnline: isOnline));
+        .add(ConnectivityDataState(connectivity: result, isOnline: isOnline));
   }
 
   void disposeStream() => _controller.close();
-}
-
-class ConnectivityData {
-  late ConnectivityResult connectivity;
-  late bool isOnline;
-  ConnectivityData({
-    required this.connectivity,
-    required this.isOnline,
-  });
-
-  ConnectivityData.initial() {
-    connectivity = ConnectivityResult.none;
-    isOnline = false;
-  }
-
-  bool get verifyOnline {
-    return (connectivity == ConnectivityResult.mobile ||
-            connectivity == ConnectivityResult.wifi) &&
-        isOnline;
-  }
 }

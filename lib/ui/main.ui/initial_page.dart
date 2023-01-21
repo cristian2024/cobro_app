@@ -1,5 +1,4 @@
 import 'package:cobro_app/bloc/internet.observer/internet_observer_cubit.dart';
-import 'package:cobro_app/helpers/internet.observer/internet_observer.dart';
 import 'package:cobro_app/ui/common/screens/no_internet.dart';
 import 'package:cobro_app/ui/main.ui/widgets/main_drawer.dart';
 import 'package:flutter/material.dart';
@@ -10,10 +9,14 @@ class InitialPage extends StatelessWidget {
   static const String routeName = 'initial_route_name';
   @override
   Widget build(BuildContext context) {
-    return BlocListener<InternetObserverCubit, ConnectivityData>(
+    return BlocListener<InternetObserverCubit, ConnectivityDataState>(
       listener: (context, state) {
         if (!state.verifyOnline) {
-          Navigator.pushNamed(context, '/${NoInternet.routeName}');
+          Navigator.pushNamedAndRemoveUntil(
+            context,
+            '/${NoInternet.routeName}',
+            (route) => false,
+          );
         }
       },
       child: Scaffold(
