@@ -11,39 +11,39 @@ enum ThemeOptions {
 
 class AppThemes {
   TextTheme globalTextTheme({required TextTheme initial}) {
-    final TextStyle _initialTextStyle =  GoogleFonts.openSans();
+    final TextStyle initialTextStyle =  GoogleFonts.openSans();
     return initial.copyWith(
-      headline1: _initialTextStyle.copyWith(
+      headline1: initialTextStyle.copyWith(
         fontWeight: FontWeight.w600,
         fontSize: 28.0,
         color: const Color(0xff072448),
       ),
-      headline2: _initialTextStyle.copyWith(
+      headline2: initialTextStyle.copyWith(
         fontWeight: FontWeight.w600,
         fontSize: 24.0,
         color: const Color(0xff072448),
       ),
-      headline3: _initialTextStyle.copyWith(
+      headline3: initialTextStyle.copyWith(
         fontWeight: FontWeight.w600,
         fontSize: 20.0,
         color: const Color(0xff072448),
       ),
-      bodyText1: _initialTextStyle.copyWith(
+      bodyText1: initialTextStyle.copyWith(
         fontWeight: FontWeight.w600,
         fontSize: 14.0,
         color: const Color(0xff072448),
       ),
-      bodyText2: _initialTextStyle.copyWith(
+      bodyText2: initialTextStyle.copyWith(
         fontWeight: FontWeight.w400,
         fontSize: 14.0,
         color: const Color(0xff072448),
       ),
-      subtitle1: _initialTextStyle.copyWith(
+      subtitle1: initialTextStyle.copyWith(
         fontWeight: FontWeight.w400,
         fontSize: 16.0,
         color: const Color(0xff072448),
       ),
-      subtitle2: _initialTextStyle.copyWith(
+      subtitle2: initialTextStyle.copyWith(
         fontWeight: FontWeight.w700,
         fontSize: 18.0,
         color: const Color(0xff072448),
