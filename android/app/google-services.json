@@ -1,0 +1,91 @@
+{
+  "project_info": {
+    "project_number": "92260348975",
+    "firebase_url": "https://cobro-65a79.firebaseio.com",
+    "project_id": "cobro-65a79",
+    "storage_bucket": "cobro-65a79.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:92260348975:android:9893c34ccc8b17107e82da",
+        "android_client_info": {
+          "package_name": "com.trabajo.cobro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "92260348975-l85m9p7nbnrv5iqdojpee4q1ppetk7l2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.trabajo.cobro",
+            "certificate_hash": "56d83a317228929868b1eda253ebb5d6655753d4"
+          }
+        },
+        {
+          "client_id": "92260348975-c1fm662hnve2e0qbba5braqp41iil9mo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACpTNqPLw_hLKtuWDU26xKaCZ6px8Srds"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "92260348975-0a14ud72t8da7vuout3rd5crjta9mgkh.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "92260348975-ddnfn5ba59v56dl0ghgim3dpm6f3cs5c.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.uranodev.finanzapp.cobroApp"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:92260348975:android:cf81612e174dcde87e82da",
+        "android_client_info": {
+          "package_name": "com.uranodev.finanzapp.cobro_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "92260348975-c1fm662hnve2e0qbba5braqp41iil9mo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACpTNqPLw_hLKtuWDU26xKaCZ6px8Srds"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "92260348975-0a14ud72t8da7vuout3rd5crjta9mgkh.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "92260348975-ddnfn5ba59v56dl0ghgim3dpm6f3cs5c.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.uranodev.finanzapp.cobroApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
