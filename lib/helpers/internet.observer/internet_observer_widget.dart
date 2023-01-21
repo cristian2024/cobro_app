@@ -1,7 +1,10 @@
+import 'package:cobro_app/bloc/internet.observer/internet_observer_cubit.dart';
 import 'package:cobro_app/helpers/internet.observer/internet_observer.dart';
+import 'package:cobro_app/ui/common/screens/no_internet.dart';
 import 'package:cobro_app/ui/common/widgets/loading.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class InternetObserverWidget extends StatefulWidget {
   const InternetObserverWidget({
@@ -80,15 +83,18 @@ class _InternetObserverWidgetState extends State<InternetObserverWidget> {
       builder: (context, snapshot) {
         if (snapshot.hasData) {
           ConnectivityData? data = snapshot.data;
-          bool isOnline = data != null &&
-              (data.connectivity == ConnectivityResult.mobile ||
-                  data.connectivity == ConnectivityResult.wifi) &&
-              data.isOnline;
-          if (isOnline) {
-            return widget.child;
+          if (data != null) {
+            bool isOnline = (data.connectivity == ConnectivityResult.mobile ||
+                    data.connectivity == ConnectivityResult.wifi) &&
+                data.isOnline;
+            if (isOnline) {
+              
+            } else {
+              BlocProvider.of<InternetObserverCubit>(context).changeDate(data);
+            }
           }
         }
-        return const Loading();
+        return widget.child;
       },
     );
   }

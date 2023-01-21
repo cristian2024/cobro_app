@@ -42,10 +42,21 @@ class InternetObserver {
 }
 
 class ConnectivityData {
-  ConnectivityResult connectivity;
-  bool isOnline;
+  late ConnectivityResult connectivity;
+  late bool isOnline;
   ConnectivityData({
     required this.connectivity,
     required this.isOnline,
   });
+
+  ConnectivityData.initial() {
+    connectivity = ConnectivityResult.none;
+    isOnline = false;
+  }
+
+  bool get verifyOnline {
+    return (connectivity == ConnectivityResult.mobile ||
+            connectivity == ConnectivityResult.wifi) &&
+        isOnline;
+  }
 }

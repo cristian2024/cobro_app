@@ -1,3 +1,4 @@
+import 'package:cobro_app/bloc/internet.observer/internet_observer_cubit.dart';
 import 'package:cobro_app/bloc/theme/theme_cubit.dart';
 import 'package:cobro_app/services/theme/theme_service.dart';
 import 'package:flutter/material.dart';
@@ -23,6 +24,9 @@ class BlocConfig extends StatelessWidget {
               listen: false,
             ),
           )..getInitialTheme(),
+        ),
+        BlocProvider(
+          create: (context) => InternetObserverCubit(),
         ),
       ],
       child: child,
