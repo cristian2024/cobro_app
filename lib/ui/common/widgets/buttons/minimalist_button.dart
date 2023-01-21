@@ -1,4 +1,4 @@
-import 'package:cobro_app/ui/widgets/buttons/ripple_button.dart';
+import 'package:cobro_app/ui/common/widgets/buttons/ripple_button.dart';
 import 'package:flutter/material.dart';
 
 class MinimalistButton extends StatelessWidget {
