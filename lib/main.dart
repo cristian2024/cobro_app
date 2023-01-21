@@ -1,5 +1,6 @@
 import 'package:cobro_app/bloc/bloc_config.dart';
 import 'package:cobro_app/bloc/theme/theme_cubit.dart';
+import 'package:cobro_app/config/firebase_config.dart';
 import 'package:cobro_app/helpers/internet.observer/internet_observer_widget.dart';
 import 'package:cobro_app/providers/profiders_config.dart';
 import 'package:cobro_app/repository/repositories_config.dart';
@@ -20,15 +21,17 @@ class CobroApp extends StatelessWidget {
       child: RepositoriesConfig(
         child: BlocConfig(
           child: InternetObserverWidget(
-            child: BlocBuilder<ThemeCubit, ThemeData>(
-              builder: (context, state) {
-                return MaterialApp(
-                  title: 'Cobro',
-                  theme: state,
-                  routes: AppRoutes.routes,
-                  initialRoute: AppRoutes.initialRoute,
-                );
-              },
+            child: FirebaseConfig(
+              child: BlocBuilder<ThemeCubit, ThemeData>(
+                builder: (context, state) {
+                  return MaterialApp(
+                    title: 'Cobro',
+                    theme: state,
+                    routes: AppRoutes.routes,
+                    initialRoute: AppRoutes.initialRoute,
+                  );
+                },
+              ),
             ),
           ),
         ),
