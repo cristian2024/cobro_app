@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>92260348975-ddnfn5ba59v56dl0ghgim3dpm6f3cs5c.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.92260348975-ddnfn5ba59v56dl0ghgim3dpm6f3cs5c</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>92260348975-l85m9p7nbnrv5iqdojpee4q1ppetk7l2.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCS2MDF9QOd0v55BNgaFgupPX-6II3XHKI</string>
+	<key>GCM_SENDER_ID</key>
+	<string>92260348975</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.uranodev.finanzapp.cobroApp</string>
+	<key>PROJECT_ID</key>
+	<string>cobro-65a79</string>
+	<key>STORAGE_BUCKET</key>
+	<string>cobro-65a79.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:92260348975:ios:9b7f06429cb406aa7e82da</string>
+	<key>DATABASE_URL</key>
+	<string>https://cobro-65a79.firebaseio.com</string>
+</dict>
+</plist>
