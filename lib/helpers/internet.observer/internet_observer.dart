@@ -24,7 +24,7 @@ class InternetObserver {
     });
   }
 
-  void checkStatusComplete()async{
+  void checkStatusComplete() async {
     ConnectivityResult result = await _networkConnectivity.checkConnectivity();
     checkStatus(result);
   }
@@ -38,8 +38,13 @@ class InternetObserver {
     } on SocketException catch (_) {
       isOnline = false;
     }
-    _controller.sink
-        .add(ConnectivityDataState(connectivity: result, isOnline: isOnline));
+    //adding data obtained of search
+    _controller.sink.add(
+      ConnectivityDataState(
+        connectivity: result,
+        isOnline: isOnline,
+      ),
+    );
   }
 
   void disposeStream() => _controller.close();
