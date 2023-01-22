@@ -3,9 +3,9 @@ import 'package:cobro_app/languages/language.dart';
 
 class LanguageEnUs extends Language {
   @override
-  String languageName = 'en us';
+  String languageName = 'es co';
 
-  factory LanguageEnUs() {
+  factory LanguageEnUs(){
     return LanguageEnUs.fromMap({});
   }
 
@@ -16,12 +16,11 @@ class LanguageEnUs extends Language {
   late final String _signinUsernameLabel;
 
   LanguageEnUs.fromMap(Map<String, dynamic> map) : super.fromMap(map) {
-    _signinTitle = map[Language.signInTitleJson] ?? 'Sign in';
-    _signinOptionsTitle = map[Language.signInOptionsTitlejson] ?? 'Or use';
-    _signinButtonText = map[Language.signInButtonTextJson] ?? 'Sign in';
-    _signinPasswordLabel = map[Language.signInPasswordLabeljson] ?? 'Password';
-    _signinUsernameLabel =
-        map[Language.signInUsernameLabeljson] ?? 'Username/email';
+    _signinTitle = map[Language.signInTitleJson] ?? 'Inicia sesión';
+    _signinOptionsTitle = map[Language.signInOptionsTitlejson] ?? 'O usa';
+    _signinButtonText = map[Language.signInButtonTextJson] ?? 'Iniciar';
+    _signinPasswordLabel = map[Language.signInPasswordLabeljson] ?? 'Contraseña';
+    _signinUsernameLabel = map[Language.signInUsernameLabeljson] ?? 'Usuario/correo';
   }
 
   //signin values

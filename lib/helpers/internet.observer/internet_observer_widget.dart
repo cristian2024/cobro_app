@@ -33,7 +33,7 @@ class _InternetObserverWidgetState extends State<InternetObserverWidget> {
 
   //connection change listener
   void connectivityListener(ConnectivityDataState event) =>
-      BlocProvider.of<InternetObserverCubit>(context).changeDate(event);
+      BlocProvider.of<InternetObserverCubit>(context).changeData(event);
 
   //when show a snackbar, ensures that flutter state is already init
   void showSnackbar(String mssg) {

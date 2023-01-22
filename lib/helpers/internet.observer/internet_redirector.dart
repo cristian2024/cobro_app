@@ -37,7 +37,7 @@ class _InternetRedirectorState extends State<InternetRedirector> {
   //connection change listener
   void connectivityListener(ConnectivityDataState event) {
     if (mounted) {
-      BlocProvider.of<InternetObserverCubit>(context).changeDate(event);
+      BlocProvider.of<InternetObserverCubit>(context).changeData(event);
     }
   }
 
