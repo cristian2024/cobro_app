@@ -48,14 +48,14 @@ class _InternetRedirectorState extends State<InternetRedirector> {
         if (mounted) {
           String routeName = ModalRoute.of(context)?.settings.name ?? '';
           if (!state.verifyOnline) {
-            if(routeName!='/${NoInternet.routeName}');
-            Navigator.pushNamedAndRemoveUntil(
-              context,
-              '/${NoInternet.routeName}',
-              (route) => false,
-            );
+            if (routeName != '/${NoInternet.routeName}') {
+              Navigator.pushNamedAndRemoveUntil(
+                context,
+                '/${NoInternet.routeName}',
+                (route) => false,
+              );
+            }
           } else {
-            
             if (routeName != '/${InitialPage.routeName}') {
               Navigator.pushNamedAndRemoveUntil(
                 context,
