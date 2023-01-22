@@ -25,13 +25,6 @@ class _InternetObserverWidgetState extends State<InternetObserverWidget> {
     super.initState();
   }
 
-  @override
-  void dispose() {
-    observer.disposeStream();
-
-    super.dispose();
-  }
-
   // listeners setup
   void setupListeners() {
     observer.initialise();

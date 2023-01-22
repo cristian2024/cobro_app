@@ -18,14 +18,19 @@ class InternetObserver {
   // creates the internet listeners
   void initialise() async {
     ConnectivityResult result = await _networkConnectivity.checkConnectivity();
-    _checkStatus(result);
+    checkStatus(result);
     _networkConnectivity.onConnectivityChanged.listen((result) {
-      _checkStatus(result);
+      checkStatus(result);
     });
   }
 
+  void checkStatusComplete()async{
+    ConnectivityResult result = await _networkConnectivity.checkConnectivity();
+    checkStatus(result);
+  }
+
   // validates if user is correctly connected to the internet
-  void _checkStatus(ConnectivityResult result) async {
+  void checkStatus(ConnectivityResult result) async {
     bool isOnline = false;
     try {
       final result = await InternetAddress.lookup('example.com');
