@@ -7,11 +7,13 @@ class MinimalistButton extends StatelessWidget {
     this.decoration,
     this.padding,
     this.onTap,
-    required this.icon,
+    this.icon,
+    this.child,
   });
 
   final BoxDecoration? decoration;
-  final IconData icon;
+  final IconData? icon;
+  final Widget? child;
   final EdgeInsets? padding;
 
   final VoidCallback? onTap;
@@ -33,7 +35,7 @@ class MinimalistButton extends StatelessWidget {
       child: Container(
         decoration: minDecoration,
         padding: padding,
-        child: Icon(icon),
+        child: child ?? Icon(icon),
       ),
     );
   }
