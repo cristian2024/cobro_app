@@ -6,8 +6,8 @@ import 'package:cobro_app/ui/common/widgets/buttons/minimalist_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class ThemeSelector extends StatelessWidget {
-  const ThemeSelector({super.key});
+class LanguageSelector extends StatelessWidget {
+  const LanguageSelector({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class ThemeSelector extends StatelessWidget {
       children: [
         BlocBuilder<LanguagesCubit, Language>(
           builder: (context, state) {
-            return Text(state.themeSelectorTitle);
+            return Text(state.languageSelectorTitle);
           },
         ),
         const SizedBox(
