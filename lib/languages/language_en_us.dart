@@ -6,12 +6,15 @@ class LanguageEnUs extends Language {
   String get languageName => 'US english';
 
   @override
-  String get countryCode=> 'US';
-  
+  String get countryCode => 'US';
 
   factory LanguageEnUs() {
-    return LanguageEnUs.fromMap({});
+    return LanguageEnUs.fromMap(const {});
   }
+
+  //app basics values
+  late final String _appBarTitle1;
+  late final String _settingsTooltipText;
 
   //signin values
   late final String _signinTitle;
@@ -25,6 +28,11 @@ class LanguageEnUs extends Language {
   late final String _languageSelectorTitle;
 
   LanguageEnUs.fromMap(Map<String, dynamic> map) : super.fromMap(map) {
+    //app basics
+    _appBarTitle1 = map[Language.appBarTitle1Json] ?? 'Cobro app';
+    _settingsTooltipText =
+        map[Language.settingsTooltipTextJson] ?? 'App settings';
+
     _signinTitle = map[Language.signInTitleJson] ?? 'Sign in';
     _signinOptionsTitle = map[Language.signInOptionsTitlejson] ?? 'Or use';
     _signinButtonText = map[Language.signInButtonTextJson] ?? 'Sign in';
@@ -38,6 +46,11 @@ class LanguageEnUs extends Language {
     _languageSelectorTitle =
         map[Language.languageSelectorTitleJson] ?? 'Language selector';
   }
+  //app basics values
+  @override
+  String get appBarTitle1 => _appBarTitle1;
+  @override
+  String get settingsTooltipText => _settingsTooltipText;
 
   //signin values
   @override
@@ -56,6 +69,4 @@ class LanguageEnUs extends Language {
   String get themeSelectorTitle => _themeSelectorTitle;
   @override
   String get languageSelectorTitle => _languageSelectorTitle;
-  
-  
 }

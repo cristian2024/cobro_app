@@ -1,6 +1,9 @@
+import 'package:cobro_app/bloc/languages/languages_cubit.dart';
+import 'package:cobro_app/languages/language.dart';
 import 'package:cobro_app/ui/common/widgets/buttons/minimalist_button.dart';
 import 'package:cobro_app/utils/size_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SigninOptions extends StatelessWidget {
@@ -17,7 +20,11 @@ class SigninOptions extends StatelessWidget {
                 color: Theme.of(context).colorScheme.onBackground,
               ),
             ),
-            const Text('Or use'),
+            BlocBuilder<LanguagesCubit, Language>(
+              builder: (context, state) {
+                return Text(state.signInOptionsTitle);
+              },
+            ),
             Expanded(
               child: Divider(
                 color: Theme.of(context).colorScheme.onBackground,

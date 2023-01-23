@@ -1,8 +1,8 @@
 import 'package:cobro_app/bloc/languages/languages_cubit.dart';
-import 'package:cobro_app/bloc/theme/theme_cubit.dart';
 import 'package:cobro_app/languages/language.dart';
-import 'package:cobro_app/ui/theme.dart';
-import 'package:cobro_app/ui/common/widgets/buttons/minimalist_button.dart';
+import 'package:cobro_app/languages/language_list.dart';
+import 'package:cobro_app/ui/common/widgets/forms/common_dropdown_form_field.dart';
+import 'package:cobro_app/ui/common/widgets/language_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -22,42 +22,27 @@ class LanguageSelector extends StatelessWidget {
         const SizedBox(
           height: 10,
         ),
-        BlocBuilder<ThemeCubit, ThemeData>(
+        BlocBuilder<LanguagesCubit, Language>(
           builder: (context, state) {
-            return Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                MinimalistButton(
-                  icon: Icons.light_mode_outlined,
-                  padding: const EdgeInsets.all(10),
-                  onTap: () {
-                    BlocProvider.of<ThemeCubit>(context).changeColorTheme(
-                      ThemeOptions.light,
-                    );
-                  },
-                ),
-                MinimalistButton(
-                  icon: Icons.dark_mode_outlined,
-                  padding: const EdgeInsets.all(10),
-                  onTap: () {
-                    BlocProvider.of<ThemeCubit>(context).changeColorTheme(
-                      ThemeOptions.dark,
-                    );
-                  },
-                ),
-                MinimalistButton(
-                  icon: Icons.auto_mode_outlined,
-                  padding: const EdgeInsets.all(10),
-                  onTap: () {
-                    BlocProvider.of<ThemeCubit>(context).changeColorTheme(
-                      ThemeOptions.semi,
-                    );
-                  },
-                ),
-              ],
+            return CommonDropdownFormField<Language>(
+              value: state,
+              onChange: (language) {
+                if (language != null) {
+                  BlocProvider.of<LanguagesCubit>(context)
+                      .modifiesLanguage(language);
+                }
+              },
+              items: LanguageList.availableLanguages
+                  .map<DropdownMenuItem<Language>>(
+                    (language) => DropdownMenuItem(
+                      value: language,
+                      child: LanguageContainer(language: language),
+                    ),
+                  )
+                  .toList(),
             );
           },
-        ),
+        )
       ],
     );
   }
