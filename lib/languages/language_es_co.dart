@@ -24,5 +24,5 @@ class LanguageEsCo extends Language {
     languageSelectorTitle = 'Selector de lenguaje';
   }
 
-  LanguageEsCo.fromMap(Map<String, dynamic> map) : super.fromMap(map) {}
+  LanguageEsCo.fromMap(Map<String, dynamic> map) : super.fromMap(map);
 }
