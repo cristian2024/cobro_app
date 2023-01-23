@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class InternetObserverCubit extends Cubit<ConnectivityDataState> {
   InternetObserverCubit() : super(const ConnectivityDataState.initial());
 
-  void changeDate(ConnectivityDataState data) {
+  void changeData(ConnectivityDataState data) {
     emit(data);
   }
 }
