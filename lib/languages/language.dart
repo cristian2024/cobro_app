@@ -3,28 +3,46 @@ abstract class Language {
   String get countryCode;
 
   Language();
-  Language.fromMap(Map<String, dynamic> map);
+  Language.fromMap(Map<String, dynamic> map) {
+    //app basics
+    appBarTitle1 = map[Language.appBarTitle1Json] ?? 'Cobro app';
+    settingsTooltipText =
+        map[Language.settingsTooltipTextJson] ?? 'App settings';
+
+    signInTitle = map[Language.signInTitleJson] ?? 'Sign in';
+    signInOptionsTitle = map[Language.signInOptionsTitlejson] ?? 'Or use';
+    signInButtonText = map[Language.signInButtonTextJson] ?? 'Sign in';
+    signInPasswordLabel = map[Language.signInPasswordLabeljson] ?? 'Password';
+    signInUsernameLabel =
+        map[Language.signInUsernameLabeljson] ?? 'Username/email';
+
+    //others
+    themeSelectorTitle =
+        map[Language.themeSelectorTitleJson] ?? 'Theme selector';
+    languageSelectorTitle =
+        map[Language.languageSelectorTitleJson] ?? 'Language selector';
+  }
 
   //app basics
-  String get appBarTitle1;
-  String get settingsTooltipText;
+  late String appBarTitle1;
+  late String settingsTooltipText;
 
   //signin values
-  String get signInTitle;
-  String get signInButtonText;
-  String get signInOptionsTitle;
-  String get signInUsernameLabel;
-  String get signInPasswordLabel;
+  late String signInTitle;
+  late String signInButtonText;
+  late String signInOptionsTitle;
+  late String signInUsernameLabel;
+  late String signInPasswordLabel;
 
   //others
-  String get themeSelectorTitle;
-  String get languageSelectorTitle;
+  late String themeSelectorTitle;
+  late String languageSelectorTitle;
 
   // ===================================================
   //json values into maps
   // ===================================================
   //app basics values
-  static String get appBarTitle1Json=>'app_bar_title_1';
+  static String get appBarTitle1Json => 'app_bar_title_1';
   static String get settingsTooltipTextJson => 'settings_tooltip_text';
 
   //signin values
