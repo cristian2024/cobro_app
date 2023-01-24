@@ -1,4 +1,4 @@
-import 'package:cobro_app/ui/widgets/buttons/ripple_button.dart';
+import 'package:cobro_app/ui/common/widgets/buttons/ripple_button.dart';
 import 'package:flutter/material.dart';
 
 class MinimalistButton extends StatelessWidget {
@@ -7,11 +7,13 @@ class MinimalistButton extends StatelessWidget {
     this.decoration,
     this.padding,
     this.onTap,
-    required this.icon,
+    this.icon,
+    this.child,
   });
 
   final BoxDecoration? decoration;
-  final IconData icon;
+  final IconData? icon;
+  final Widget? child;
   final EdgeInsets? padding;
 
   final VoidCallback? onTap;
@@ -20,7 +22,9 @@ class MinimalistButton extends StatelessWidget {
   Widget build(BuildContext context) {
     BoxDecoration minDecoration =
         (decoration ?? const BoxDecoration()).copyWith(
-      border: Border.all(color: Colors.white, style: BorderStyle.solid),
+      border: Border.all(
+          color: Theme.of(context).iconTheme.color ?? Colors.white,
+          style: BorderStyle.solid),
       borderRadius: BorderRadius.circular(10),
     );
     return RippleButton(
@@ -31,7 +35,7 @@ class MinimalistButton extends StatelessWidget {
       child: Container(
         decoration: minDecoration,
         padding: padding,
-        child: Icon(icon),
+        child: child ?? Icon(icon),
       ),
     );
   }
