@@ -7,8 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class SigninOptions extends StatelessWidget {
-  const SigninOptions({super.key});
+class SignOptions extends StatelessWidget {
+  const SignOptions({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class SigninOptions extends StatelessWidget {
             ),
             BlocBuilder<LanguagesCubit, Language>(
               builder: (context, state) {
-                return Text(state.signInOptionsTitle);
+                return Text(state.authOptionsTitle);
               },
             ),
             Expanded(
