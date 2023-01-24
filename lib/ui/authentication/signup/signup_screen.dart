@@ -46,9 +46,9 @@ class _SignupScreenState extends State<SignupScreen> {
                     height: SizeScreens.height(context, 40),
                   ),
                   const _AlreadyUser(),
-                  // SizedBox(
-                  //   height: SizeScreens.height(context, 230),
-                  // ),
+                  SizedBox(
+                    height: SizeScreens.height(context, 80),
+                  ),
                 ],
               ),
             ),

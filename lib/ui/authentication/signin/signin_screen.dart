@@ -46,6 +46,9 @@ class _SigninScreenState extends State<SigninScreen> {
                     height: SizeScreens.height(context, 40),
                   ),
                   const _NeedAccount(),
+                  SizedBox(
+                    height: SizeScreens.height(context, 80),
+                  ),
                 ],
               ),
             ),
