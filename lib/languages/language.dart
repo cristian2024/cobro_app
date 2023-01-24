@@ -9,12 +9,19 @@ abstract class Language {
     settingsTooltipText =
         map[Language.settingsTooltipTextJson] ?? 'App settings';
 
+    //authentication
+    authPasswordLabel = map[Language.signInPasswordLabelJson] ?? 'Password';
+    authUserLabel = map[Language.authUsernameLabelJson] ?? 'Username/email';
+    authAlreadyUser = map[Language.authAlreadyUserJson] ?? authAlreadyUser;
+
+    //signin options
     signInTitle = map[Language.signInTitleJson] ?? 'Sign in';
-    signInOptionsTitle = map[Language.signInOptionsTitlejson] ?? 'Or use';
+    authOptionsTitle = map[Language.authOptionsTitleJson] ?? 'Or use';
     signInButtonText = map[Language.signInButtonTextJson] ?? 'Sign in';
-    signInPasswordLabel = map[Language.signInPasswordLabeljson] ?? 'Password';
-    signInUsernameLabel =
-        map[Language.signInUsernameLabeljson] ?? 'Username/email';
+
+    //signup options
+    signUpTitle = map[Language.signUpTitleJson] ?? 'Sign up';
+    signUpButtonText = map[Language.signUpButtonTextJson] ?? signInButtonText;
 
     //others
     themeSelectorTitle =
@@ -24,19 +31,27 @@ abstract class Language {
   }
 
   //app basics
-  late String appBarTitle1;
-  late String settingsTooltipText;
+  String appBarTitle1 = 'Cobro app';
+  String settingsTooltipText = 'App settings';
+
+  //authentication
+  String authUserLabel = 'Username/email';
+  String authPasswordLabel = 'Password';
+  String authAlreadyUser = 'Already a user?';
+  String authNeedAccount = 'Need an account?';
+  String authOptionsTitle = 'Or use';
 
   //signin values
-  late String signInTitle;
-  late String signInButtonText;
-  late String signInOptionsTitle;
-  late String signInUsernameLabel;
-  late String signInPasswordLabel;
+  String signInTitle = 'Sign in';
+  String signInButtonText = 'Sign in';
+
+  //signup values
+  String signUpTitle = 'Sign up';
+  String signUpButtonText = 'Sign up';
 
   //others
-  late String themeSelectorTitle;
-  late String languageSelectorTitle;
+  String themeSelectorTitle = 'Theme selector';
+  String languageSelectorTitle = 'Language selector';
 
   // ===================================================
   //json values into maps
@@ -45,12 +60,20 @@ abstract class Language {
   static String get appBarTitle1Json => 'app_bar_title_1';
   static String get settingsTooltipTextJson => 'settings_tooltip_text';
 
+  //authentication values
+  static String get authUsernameLabelJson => 'auth_username_label';
+  static String get signInPasswordLabelJson => 'auth_password_label';
+  static String get authAlreadyUserJson => 'auth_already_user';
+  static String get authNeedAccountJson => 'auth_need_account';
+  static String get authOptionsTitleJson => 'auth_options_title';
+
   //signin values
   static String get signInTitleJson => 'sign_in_title';
   static String get signInButtonTextJson => 'sign_in_button_text';
-  static String get signInOptionsTitlejson => 'sign_in_options_title';
-  static String get signInUsernameLabeljson => 'sign_in_username_label';
-  static String get signInPasswordLabeljson => 'sign_in_password_label';
+
+  //signup values
+  static String get signUpTitleJson => 'sign_up_title';
+  static String get signUpButtonTextJson => 'sign_up_button_text';
 
   //others
   static String get themeSelectorTitleJson => 'theme_selector_title';

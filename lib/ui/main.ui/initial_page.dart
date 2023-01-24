@@ -39,7 +39,7 @@ class InitialPage extends StatelessWidget {
                       text: state.signInButtonText,
                       onClick: () {
                         Navigator.of(context).pushNamedAndRemoveUntil(
-                          '/${SigninScreen.routeName}',
+                          SigninScreen.routeName,
                           (route) => false,
                         );
                       },

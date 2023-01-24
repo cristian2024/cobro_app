@@ -12,12 +12,20 @@ class LanguageEsCo extends Language {
     appBarTitle1 = 'Cobro app';
     settingsTooltipText = 'Configuraciones de app';
 
+    //Authentication
+    authPasswordLabel = 'Contraseña';
+    authUserLabel = 'Usuario/correo';
+    authAlreadyUser = 'Ya eres un usuario?';
+    authNeedAccount = 'Necesitas una cuenta?';
+    authOptionsTitle = 'O usa';
+
     //sign in
     signInTitle = 'Inicia sesión';
-    signInOptionsTitle = 'O usa';
     signInButtonText = 'Iniciar';
-    signInPasswordLabel = 'Contraseña';
-    signInUsernameLabel = 'Usuario/correo';
+
+    //sign up
+    signUpTitle = 'Registrate';
+    signUpButtonText = 'Registrate';
 
     //others
     themeSelectorTitle = 'Selector de tema';
