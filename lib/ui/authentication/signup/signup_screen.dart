@@ -1,25 +1,25 @@
 import 'package:cobro_app/bloc/languages/languages_cubit.dart';
 import 'package:cobro_app/languages/language.dart';
-import 'package:cobro_app/ui/authentication/signin/widgets/signin_form.dart';
 import 'package:cobro_app/ui/authentication/common/sign_options.dart';
-import 'package:cobro_app/ui/authentication/signup/signup_screen.dart';
+import 'package:cobro_app/ui/authentication/signin/signin_screen.dart';
+import 'package:cobro_app/ui/authentication/signup/widgets/signup_form.dart';
 import 'package:cobro_app/utils/size_screen.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class SigninScreen extends StatefulWidget {
-  const SigninScreen({super.key});
+class SignupScreen extends StatefulWidget {
+  const SignupScreen({super.key});
 
-  static const routeName = '/auth';
+  static const routeName = '/${SigninScreen.routeName}/sign_up';
 
   @override
-  State<SigninScreen> createState() => _SigninScreenState();
+  State<SignupScreen> createState() => _SignupScreenState();
 }
 
-GlobalKey<FormState> signinKey = GlobalKey<FormState>();
+GlobalKey<FormState> signupKey = GlobalKey<FormState>();
 
-class _SigninScreenState extends State<SigninScreen> {
+class _SignupScreenState extends State<SignupScreen> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<LanguagesCubit, Language>(
@@ -36,8 +36,8 @@ class _SigninScreenState extends State<SigninScreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(state.signInTitle),
-                  const SigninForm(),
+                  Text(state.signUpTitle),
+                  const SignupForm(),
                   SizedBox(
                     height: SizeScreens.height(context, 40),
                   ),
@@ -45,7 +45,10 @@ class _SigninScreenState extends State<SigninScreen> {
                   SizedBox(
                     height: SizeScreens.height(context, 40),
                   ),
-                  const _NeedAccount(),
+                  const _AlreadyUser(),
+                  // SizedBox(
+                  //   height: SizeScreens.height(context, 230),
+                  // ),
                 ],
               ),
             ),
@@ -56,8 +59,8 @@ class _SigninScreenState extends State<SigninScreen> {
   }
 }
 
-class _NeedAccount extends StatelessWidget {
-  const _NeedAccount({
+class _AlreadyUser extends StatelessWidget {
+  const _AlreadyUser({
     Key? key,
   }) : super(key: key);
 
@@ -70,16 +73,20 @@ class _NeedAccount extends StatelessWidget {
             text: '${state.authNeedAccount} ',
             children: <TextSpan>[
               TextSpan(
-                text: state.signUpTitle.toUpperCase(),
+                text: state.signInTitle.toUpperCase(),
                 //TODO - use theme texstyle as basis
                 style: const TextStyle(
                   decoration: TextDecoration.underline,
                 ),
                 recognizer: TapGestureRecognizer()
                   ..onTap = () {
-                    Navigator.of(context).pushNamed(
-                      SignupScreen.routeName,
-                    );
+                    if (Navigator.canPop(context)) {
+                      Navigator.pop(context);
+                    } else {
+                      Navigator.of(context).pushNamed(
+                        SigninScreen.routeName,
+                      );
+                    }
                   },
               ),
             ],

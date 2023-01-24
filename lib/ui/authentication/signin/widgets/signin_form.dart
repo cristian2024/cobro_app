@@ -1,5 +1,6 @@
 import 'package:cobro_app/bloc/languages/languages_cubit.dart';
 import 'package:cobro_app/languages/language.dart';
+import 'package:cobro_app/ui/authentication/signin/signin_screen.dart';
 import 'package:cobro_app/ui/common/widgets/buttons/common_button.dart';
 import 'package:cobro_app/ui/common/widgets/forms/common_text_form_field.dart';
 import 'package:cobro_app/utils/size_screen.dart';
@@ -14,14 +15,15 @@ class SigninForm extends StatelessWidget {
     return BlocBuilder<LanguagesCubit, Language>(
       builder: (context, state) {
         return Form(
+          key: signinKey,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               CommonTFField(
-                labelText: state.signInUsernameLabel,
+                labelText: state.authUserLabel,
               ),
               CommonTFField(
-                labelText: state.signInPasswordLabel,
+                labelText: state.authPasswordLabel,
               ),
               SizedBox(
                 height: SizeScreens.height(context, 16),
