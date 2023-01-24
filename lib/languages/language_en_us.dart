@@ -14,10 +14,18 @@ class LanguageEnUs extends Language {
     settingsTooltipText = 'App settings';
 
     signInTitle = 'Sign in';
-    signInOptionsTitle = 'Or use';
     signInButtonText = 'Sign in';
-    signInPasswordLabel = 'Password';
-    signInUsernameLabel = 'Username/email';
+
+    //auth
+    authPasswordLabel = 'Password';
+    authUserLabel = 'Username/email';
+    authOptionsTitle = 'Or use';
+    authAlreadyUser = 'Already a user?';
+    authNeedAccount = 'Need an account?';
+
+    //signup
+    signUpButtonText = 'Sign up';
+    signUpTitle = 'Sign up';
 
     //others
     themeSelectorTitle = 'Theme selector';
