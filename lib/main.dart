@@ -2,7 +2,7 @@ import 'package:cobro_app/bloc/bloc_config.dart';
 import 'package:cobro_app/bloc/theme/theme_cubit.dart';
 import 'package:cobro_app/config/firebase_config.dart';
 import 'package:cobro_app/helpers/internet.observer/internet_observer_widget.dart';
-import 'package:cobro_app/providers/profiders_config.dart';
+import 'package:cobro_app/services/services_config.dart';
 import 'package:cobro_app/repository/repositories_config.dart';
 import 'package:cobro_app/ui/routes.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +17,7 @@ class CobroApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ProvidersConfig(
+    return ServicesConfig(
       child: RepositoriesConfig(
         child: BlocConfig(
           child: InternetObserverWidget(

@@ -1,3 +1,4 @@
+import 'package:cobro_app/bloc/authentication/authentication_bloc.dart';
 import 'package:cobro_app/bloc/languages/languages_cubit.dart';
 import 'package:cobro_app/languages/language.dart';
 import 'package:cobro_app/ui/common/widgets/buttons/minimalist_button.dart';
@@ -40,6 +41,11 @@ class SigninOptions extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             MinimalistButton(
+              onTap: () {
+                BlocProvider.of<AuthenticationBloc>(context).add(
+                  SigninWithEmail(),
+                );
+              },
               child: Container(
                 margin: const EdgeInsets.all(8.0),
                 child: const Icon(
@@ -48,6 +54,11 @@ class SigninOptions extends StatelessWidget {
               ),
             ),
             MinimalistButton(
+              onTap: () {
+                BlocProvider.of<AuthenticationBloc>(context).add(
+                  SignOut(),
+                );
+              },
               child: Container(
                 margin: const EdgeInsets.all(8.0),
                 child: const Icon(
