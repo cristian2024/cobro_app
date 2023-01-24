@@ -1,10 +1,14 @@
 part of 'authentication_bloc.dart';
 
-abstract class AuthenticationState extends Equatable {
-  const AuthenticationState();
-  
-  @override
-  List<Object> get props => [];
-}
+class AuthenticationState extends Equatable {
+  const AuthenticationState({
+    this.currentUserData,
+  });
 
-class AuthenticationInitial extends AuthenticationState {}
+  final UserModel? currentUserData;
+
+  @override
+  List<Object> get props => [
+        currentUserData ?? '',
+      ];
+}

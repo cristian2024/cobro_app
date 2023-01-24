@@ -9,4 +9,14 @@ abstract class AuthenticationEvent extends Equatable {
 
 class SigninWithEmail extends AuthenticationEvent {}
 
+class SignUpWithForm extends AuthenticationEvent {
+  final UserModel user;
+  final String password;
+
+  const SignUpWithForm({
+    required this.user,
+    required this.password,
+  });
+}
+
 class SignOut extends AuthenticationEvent {}

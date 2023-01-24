@@ -1,8 +1,12 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:cobro_app/models/user/user_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 import 'package:cobro_app/utils/logger.dart';
+
+part 'authentication_form_service.dart';
+part 'authentication_gmail_service.dart';
 
 class AuthenticationService {
   // ignore: constant_identifier_names
@@ -13,35 +17,7 @@ class AuthenticationService {
   AuthenticationService({
     required this.google,
   });
-
-  Future<User?> signInGoogle() async {
-    logg('Login with gmail', TAG: TAG);
-
-    //launching gmail login pop up
-    final googleSignin = await google.signIn();
-
-    if (googleSignin == null) {
-      logg('Signin couldnt be completed', TAG: TAG);
-      throw Exception('Signin error');
-    }
-    //validating authentication of sign in
-    final authentication = await googleSignin.authentication;
-
-    //obtaining firebase usable credential
-    final credential = GoogleAuthProvider.credential(
-      accessToken: authentication.accessToken,
-      idToken: authentication.idToken,
-    );
-    final userCredential = await _auth.signInWithCredential(credential);
-
-    User? user = userCredential.user;
-
-    if (user != null) {
-      return _currentSignin(user);
-    }
-    return null;
-  }
-
+  
   Future<User?> _currentSignin(User user) async {
     assert(!user.isAnonymous);
 
@@ -58,3 +34,5 @@ class AuthenticationService {
     await _auth.signOut();
   }
 }
+
+
