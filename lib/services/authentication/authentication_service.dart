@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:cobro_app/exceptions/authentication/auth_code_converter.dart';
 import 'package:cobro_app/models/user/user_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -12,12 +13,15 @@ class AuthenticationService {
   // ignore: constant_identifier_names
   static const TAG = 'AUTHENTICATION SERVICE';
 
+  //firebase auth error codes
+  static const emailAlreadyInUse = 'email-already-in-use';
+
   final _auth = FirebaseAuth.instance;
   final GoogleSignIn google;
   AuthenticationService({
     required this.google,
   });
-  
+
   Future<User?> _currentSignin(User user) async {
     assert(!user.isAnonymous);
 
@@ -34,5 +38,3 @@ class AuthenticationService {
     await _auth.signOut();
   }
 }
-
-

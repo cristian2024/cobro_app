@@ -52,3 +52,10 @@ class BlocConfig extends StatelessWidget {
     );
   }
 }
+
+enum ReqStatus{
+  noSubmitted,
+  inProgress,
+  success,
+  fail,
+}

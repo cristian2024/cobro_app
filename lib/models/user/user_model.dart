@@ -2,7 +2,7 @@
 class UserModel {
   String name;
   String lastName;
-  String id;
+  String? id;
   String cellphone;
   String email;
   String userName;
@@ -12,7 +12,7 @@ class UserModel {
   UserModel({
     required this.name,
     required this.lastName,
-    required this.id,
+    this.id,
     required this.cellphone,
     required this.email,
     required this.userName,

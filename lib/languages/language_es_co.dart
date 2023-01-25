@@ -14,7 +14,7 @@ class LanguageEsCo extends Language {
 
     //Authentication
     authPasswordLabel = 'Contraseña';
-    authUserLabel = 'Usuario/correo';
+    authEmailLabel = 'Correo';
     authAlreadyUser = 'Ya eres un usuario?';
     authNeedAccount = 'Necesitas una cuenta?';
     authOptionsTitle = 'O usa';

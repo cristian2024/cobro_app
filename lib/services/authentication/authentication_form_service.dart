@@ -5,18 +5,22 @@ extension FormAuth on AuthenticationService {
     required UserModel userData,
     required String password,
   }) async {
-    logg(
-      'Login via form',
-      TAG: AuthenticationService.TAG,
-    );
+    try {
+      logg(
+        'Login via form',
+        TAG: AuthenticationService.TAG,
+      );
 
-    final userCredential = await _auth.createUserWithEmailAndPassword(
-        email: userData.email, password: password);
+      final userCredential = await _auth.createUserWithEmailAndPassword(
+          email: userData.email, password: password);
 
-    User? user = userCredential.user;
+      User? user = userCredential.user;
 
-    if (user != null) {
-      return _currentSignin(user);
+      if (user != null) {
+        return _currentSignin(user);
+      }
+    } on FirebaseAuthException catch (e) {
+      AuthCodeConverter.throwCodeToException(e.code);
     }
     return null;
   }

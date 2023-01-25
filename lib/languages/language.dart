@@ -11,7 +11,7 @@ abstract class Language {
 
     //authentication
     authPasswordLabel = map[Language.signInPasswordLabelJson] ?? 'Password';
-    authUserLabel = map[Language.authUsernameLabelJson] ?? 'Username/email';
+    authEmailLabel = map[Language.authEmailLabelJson] ?? authEmailLabel;
     authAlreadyUser = map[Language.authAlreadyUserJson] ?? authAlreadyUser;
 
     //signin options
@@ -35,7 +35,7 @@ abstract class Language {
   String settingsTooltipText = 'App settings';
 
   //authentication
-  String authUserLabel = 'Username/email';
+  String authEmailLabel = 'Email';
   String authPasswordLabel = 'Password';
   String authAlreadyUser = 'Already a user?';
   String authNeedAccount = 'Need an account?';
@@ -61,7 +61,7 @@ abstract class Language {
   static String get settingsTooltipTextJson => 'settings_tooltip_text';
 
   //authentication values
-  static String get authUsernameLabelJson => 'auth_username_label';
+  static String get authEmailLabelJson => 'auth_username_label';
   static String get signInPasswordLabelJson => 'auth_password_label';
   static String get authAlreadyUserJson => 'auth_already_user';
   static String get authNeedAccountJson => 'auth_need_account';

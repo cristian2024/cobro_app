@@ -1,3 +1,5 @@
+import 'package:cobro_app/bloc/bloc_config.dart';
+import 'package:cobro_app/exceptions/authentication/auth_exceptions.dart';
 import 'package:cobro_app/models/user/user_model.dart';
 import 'package:cobro_app/repository/authentication/authentication_repository.dart';
 import 'package:cobro_app/services/authentication/authentication_service.dart';
@@ -17,9 +19,13 @@ class AuthenticationBloc
   }) : super(const AuthenticationState()) {
     on<SigninWithEmail>((event, emit) => _signInWithGmail());
     on<SignOut>((event, emit) => _signOut());
-    on<SignUpWithForm>(
+    on<SignUpWithFormEvent>(
       (event, emit) {
-        return _signUpWithForm(event.user, event.password);
+        return _signUpWithForm(
+          emit,
+          user: event.user,
+          password: event.password,
+        );
       },
     );
   }
@@ -28,11 +34,28 @@ class AuthenticationBloc
     await service.signInGoogle();
   }
 
-  _signUpWithForm(UserModel user, String password) async {
-    await service.signUpWithForm(
-      userData: user,
-      password: password,
-    );
+  _signUpWithForm(
+    Emitter<AuthenticationState> emit, {
+    required UserModel user,
+    required String password,
+  }) async {
+    try {
+      await service.signUpWithForm(
+        userData: user,
+        password: password,
+      );
+    } on AuthException catch (e) {
+      emit(
+        state.copyWith(
+          status: ReqStatus.fail,
+          exception: e,
+        ),
+      );
+    } catch (e) {
+      emit(
+        state.copyWith(status: ReqStatus.fail),
+      );
+    }
   }
 
   _signOut() async {

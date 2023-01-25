@@ -18,7 +18,7 @@ class LanguageEnUs extends Language {
 
     //auth
     authPasswordLabel = 'Password';
-    authUserLabel = 'Username/email';
+    authEmailLabel = 'Email';
     authOptionsTitle = 'Or use';
     authAlreadyUser = 'Already a user?';
     authNeedAccount = 'Need an account?';

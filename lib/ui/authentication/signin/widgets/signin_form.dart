@@ -20,7 +20,7 @@ class SigninForm extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               CommonTFField(
-                labelText: state.authUserLabel,
+                labelText: state.authEmailLabel,
               ),
               CommonTFField(
                 labelText: state.authPasswordLabel,
