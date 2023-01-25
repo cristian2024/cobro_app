@@ -11,7 +11,7 @@ abstract class Language {
 
     //authentication
     authPasswordLabel = map[Language.signInPasswordLabelJson] ?? 'Password';
-    authUserLabel = map[Language.authUsernameLabelJson] ?? 'Username/email';
+    authEmailLabel = map[Language.authEmailLabelJson] ?? authEmailLabel;
     authAlreadyUser = map[Language.authAlreadyUserJson] ?? authAlreadyUser;
 
     //signin options
@@ -28,6 +28,15 @@ abstract class Language {
         map[Language.themeSelectorTitleJson] ?? 'Theme selector';
     languageSelectorTitle =
         map[Language.languageSelectorTitleJson] ?? 'Language selector';
+
+    //errors in forms
+    notValidEmail = map[Language.notValidEmailJson] ?? notValidEmail;
+    notValidPassword = map[Language.notValidPasswordJson] ?? notValidPassword;
+
+    //exceptions
+    emailAlreadyInUseText =
+        map[Language.emailAlreadyInUseJson] ?? emailAlreadyInUseText;
+    authErrorText = map[Language.authErrorJson] ?? authErrorText;
   }
 
   //app basics
@@ -35,7 +44,7 @@ abstract class Language {
   String settingsTooltipText = 'App settings';
 
   //authentication
-  String authUserLabel = 'Username/email';
+  String authEmailLabel = 'Email';
   String authPasswordLabel = 'Password';
   String authAlreadyUser = 'Already a user?';
   String authNeedAccount = 'Need an account?';
@@ -53,6 +62,14 @@ abstract class Language {
   String themeSelectorTitle = 'Theme selector';
   String languageSelectorTitle = 'Language selector';
 
+  //errors in forms
+  String notValidEmail = 'Please rewrite/complete with a correct email';
+  String notValidPassword = 'This is not a valid password';
+
+  //exceptions
+  String emailAlreadyInUseText = 'This email is already taken';
+  String authErrorText = 'There was an unbounded authenticationError';
+
   // ===================================================
   //json values into maps
   // ===================================================
@@ -61,7 +78,7 @@ abstract class Language {
   static String get settingsTooltipTextJson => 'settings_tooltip_text';
 
   //authentication values
-  static String get authUsernameLabelJson => 'auth_username_label';
+  static String get authEmailLabelJson => 'auth_username_label';
   static String get signInPasswordLabelJson => 'auth_password_label';
   static String get authAlreadyUserJson => 'auth_already_user';
   static String get authNeedAccountJson => 'auth_need_account';
@@ -78,6 +95,14 @@ abstract class Language {
   //others
   static String get themeSelectorTitleJson => 'theme_selector_title';
   static String get languageSelectorTitleJson => 'language_selector_title';
+
+  //errors in forms
+  static String get notValidEmailJson => 'not_valid_email';
+  static String get notValidPasswordJson => 'not_valid_password';
+
+  //exception in forms
+  static String get emailAlreadyInUseJson => 'email_already_in_use';
+  static String get authErrorJson => 'auth_error';
 
   @override
   bool operator ==(other) {

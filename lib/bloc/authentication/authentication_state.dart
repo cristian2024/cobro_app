@@ -1,10 +1,33 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 part of 'authentication_bloc.dart';
 
-abstract class AuthenticationState extends Equatable {
-  const AuthenticationState();
-  
-  @override
-  List<Object> get props => [];
-}
+class AuthenticationState extends Equatable {
+  const AuthenticationState({
+    this.currentUserData,
+    this.status = ReqStatus.noSubmitted,
+    this.exception,
+  });
 
-class AuthenticationInitial extends AuthenticationState {}
+  final UserModel? currentUserData;
+  final ReqStatus status;
+  final AuthException? exception;
+
+  @override
+  List<Object> get props => [
+        currentUserData ?? '',
+        status,
+        exception??'',
+      ];
+
+  AuthenticationState copyWith({
+    UserModel? currentUserData,
+    ReqStatus? status,
+    AuthException? exception,
+  }) {
+    return AuthenticationState(
+      currentUserData: currentUserData ?? this.currentUserData,
+      status: status ?? this.status,
+      exception: exception,
+    );
+  }
+}

@@ -24,6 +24,7 @@ dependencies:
   google_sign_in: ^5.4.3
   font_awesome_flutter: ^10.3.0
   flag: ^6.0.0
+  email_validator: ^2.1.17
   
 
 dev_dependencies:

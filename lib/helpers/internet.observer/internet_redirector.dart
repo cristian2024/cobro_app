@@ -56,10 +56,10 @@ class _InternetRedirectorState extends State<InternetRedirector> {
               );
             }
           } else {
-            if (routeName != '/${InitialPage.routeName}') {
+            if (routeName != InitialPage.routeName) {
               Navigator.pushNamedAndRemoveUntil(
                 context,
-                '/${InitialPage.routeName}',
+                InitialPage.routeName,
                 (route) => false,
               );
             }

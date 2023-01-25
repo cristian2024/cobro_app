@@ -14,7 +14,7 @@ class LanguageEsCo extends Language {
 
     //Authentication
     authPasswordLabel = 'Contraseña';
-    authUserLabel = 'Usuario/correo';
+    authEmailLabel = 'Correo';
     authAlreadyUser = 'Ya eres un usuario?';
     authNeedAccount = 'Necesitas una cuenta?';
     authOptionsTitle = 'O usa';
@@ -30,6 +30,14 @@ class LanguageEsCo extends Language {
     //others
     themeSelectorTitle = 'Selector de tema';
     languageSelectorTitle = 'Selector de lenguaje';
+
+    //errors
+    notValidEmail = 'Verifica tu correo para poder continuar';
+    notValidPassword = 'Verifica tu contraseña para poder continuar';
+
+    //exceptions
+    emailAlreadyInUseText = 'Este email ya se encuentra registrado';
+    authErrorText = 'Hubo un error en el proceso de autenticación';
   }
 
   LanguageEsCo.fromMap(Map<String, dynamic> map) : super.fromMap(map);
