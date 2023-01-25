@@ -63,7 +63,6 @@ class _SignupFormState extends State<SignupForm> {
               CommonPasswordField(
                 labelText: state.authPasswordLabel,
                 controller: _passwordController,
-                validator: (value)=> Validators.passwordValidator(value, state),
                 autovalidateMode: AutovalidateMode.onUserInteraction,
               ),
               SizedBox(

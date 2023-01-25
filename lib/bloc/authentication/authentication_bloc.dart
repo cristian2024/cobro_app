@@ -28,12 +28,28 @@ class AuthenticationBloc
         );
       },
     );
+    on<SignInWithFormEvent>(
+      (event, emit) {
+        return _signInWithForm(
+          emit,
+          user: event.user,
+          password: event.password,
+        );
+      },
+    );
   }
 
   _signInWithGmail() async {
     await service.signInGoogle();
   }
 
+  _signOut() async {
+    service.signOut();
+  }
+}
+
+
+extension FormMethods on AuthenticationBloc{
   _signUpWithForm(
     Emitter<AuthenticationState> emit, {
     required UserModel user,
@@ -65,7 +81,34 @@ class AuthenticationBloc
     }
   }
 
-  _signOut() async {
-    service.signOut();
+  _signInWithForm(
+    Emitter<AuthenticationState> emit, {
+    required UserModel user,
+    required String password,
+  }) async {
+    try {
+      await service.signInWithForm(
+        userData: user,
+        password: password,
+      );
+
+      emit(
+        state.copyWith(
+          status: ReqStatus.success,
+          currentUserData: user,
+        ),
+      );
+    } on AuthException catch (e) {
+      emit(
+        state.copyWith(
+          status: ReqStatus.fail,
+          exception: e,
+        ),
+      );
+    } catch (e) {
+      emit(
+        state.copyWith(status: ReqStatus.fail),
+      );
+    }
   }
 }
