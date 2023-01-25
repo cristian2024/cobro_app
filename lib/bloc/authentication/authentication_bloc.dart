@@ -49,7 +49,7 @@ class AuthenticationBloc
         state.copyWith(
           status: ReqStatus.fail,
           exception: e,
-        ),
+        ),  
       );
     } catch (e) {
       emit(

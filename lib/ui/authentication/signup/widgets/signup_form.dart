@@ -57,13 +57,13 @@ class _SignupFormState extends State<SignupForm> {
               CommonTFField(
                 labelText: state.authEmailLabel,
                 controller: _emailController,
-                validator: Validators.emailValidator,
+                validator: (value)=> Validators.emailValidator(value,state),
                 autovalidateMode: AutovalidateMode.onUserInteraction,
               ),
               CommonPasswordField(
                 labelText: state.authPasswordLabel,
                 controller: _passwordController,
-                validator: Validators.passwordValidator,
+                validator: (value)=> Validators.passwordValidator(value, state),
                 autovalidateMode: AutovalidateMode.onUserInteraction,
               ),
               SizedBox(
