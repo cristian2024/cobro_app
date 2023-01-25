@@ -4,6 +4,7 @@ import 'package:cobro_app/models/user/user_model.dart';
 import 'package:cobro_app/repository/authentication/authentication_repository.dart';
 import 'package:cobro_app/services/authentication/authentication_service.dart';
 import 'package:equatable/equatable.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'authentication_event.dart';
@@ -17,7 +18,7 @@ class AuthenticationBloc
     required this.service,
     required this.repository,
   }) : super(const AuthenticationState()) {
-    on<SigninWithEmail>((event, emit) => _signInWithGmail());
+    on<SigninWithEmail>((event, emit) => _signInWithGmail(emit));
     on<SignOut>((event, emit) => _signOut());
     on<SignUpWithFormEvent>(
       (event, emit) {
@@ -39,8 +40,22 @@ class AuthenticationBloc
     );
   }
 
-  _signInWithGmail() async {
-    await service.signInGoogle();
+  _signInWithGmail(
+    Emitter<AuthenticationState> emit,
+  ) async {
+    emit(
+      state.copyWith(status: ReqStatus.inProgress),
+    );
+    final user = await service.signInGoogle();
+    emit(
+      state.copyWith(
+        currentUserData: UserModel.initial(
+          email: user?.email ?? '',
+          name: user?.displayName ?? '',
+        ),
+        status: ReqStatus.success,
+      ),
+    );
   }
 
   _signOut() async {
@@ -48,8 +63,7 @@ class AuthenticationBloc
   }
 }
 
-
-extension FormMethods on AuthenticationBloc{
+extension FormMethods on AuthenticationBloc {
   _signUpWithForm(
     Emitter<AuthenticationState> emit, {
     required UserModel user,
