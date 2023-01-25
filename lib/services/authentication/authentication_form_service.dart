@@ -20,7 +20,7 @@ extension FormAuth on AuthenticationService {
         return _currentSignin(user);
       }
     } on FirebaseAuthException catch (e) {
-      AuthCodeConverter.throwCodeToException(e.code);
+      AuthConverter.throwCodeToException(e.code);
     }
     return null;
   }

@@ -30,6 +30,14 @@ class LanguageEnUs extends Language {
     //others
     themeSelectorTitle = 'Theme selector';
     languageSelectorTitle = 'Language selector';
+
+    //errors in forms
+    notValidEmail = 'Please rewrite/complete with a correct email';
+    notValidPassword = 'This is not a valid password';
+
+    //exceptions
+    emailAlreadyInUseText = 'This email is already taken';
+    authErrorText = 'There was an unbounded authenticationError';
   }
 
   LanguageEnUs.fromMap(Map<String, dynamic> map) : super.fromMap(map);

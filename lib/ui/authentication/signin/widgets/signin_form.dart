@@ -2,6 +2,7 @@ import 'package:cobro_app/bloc/languages/languages_cubit.dart';
 import 'package:cobro_app/languages/language.dart';
 import 'package:cobro_app/ui/authentication/signin/signin_screen.dart';
 import 'package:cobro_app/ui/common/widgets/buttons/common_button.dart';
+import 'package:cobro_app/ui/common/widgets/forms/common_password_field.dart';
 import 'package:cobro_app/ui/common/widgets/forms/common_text_form_field.dart';
 import 'package:cobro_app/utils/size_screen.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +23,7 @@ class SigninForm extends StatelessWidget {
               CommonTFField(
                 labelText: state.authEmailLabel,
               ),
-              CommonTFField(
+              CommonPasswordField(
                 labelText: state.authPasswordLabel,
               ),
               SizedBox(

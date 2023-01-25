@@ -1,8 +1,4 @@
-class AuthException implements Exception{}
+class   AuthException implements Exception {
+}
 
-
-class EmailAlreadyInUse extends AuthException{}
-
-
-
-
+class EmailAlreadyInUse extends AuthException {}

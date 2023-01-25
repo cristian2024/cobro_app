@@ -4,6 +4,7 @@ import 'package:cobro_app/languages/language.dart';
 import 'package:cobro_app/models/user/user_model.dart';
 import 'package:cobro_app/ui/authentication/signup/signup_screen.dart';
 import 'package:cobro_app/ui/common/widgets/buttons/common_button.dart';
+import 'package:cobro_app/ui/common/widgets/forms/common_password_field.dart';
 import 'package:cobro_app/ui/common/widgets/forms/common_text_form_field.dart';
 import 'package:cobro_app/utils/size_screen.dart';
 import 'package:cobro_app/utils/validators.dart';
@@ -59,7 +60,7 @@ class _SignupFormState extends State<SignupForm> {
                 validator: Validators.emailValidator,
                 autovalidateMode: AutovalidateMode.onUserInteraction,
               ),
-              CommonTFField(
+              CommonPasswordField(
                 labelText: state.authPasswordLabel,
                 controller: _passwordController,
                 validator: Validators.passwordValidator,
