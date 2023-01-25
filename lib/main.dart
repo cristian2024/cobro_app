@@ -20,18 +20,16 @@ class CobroApp extends StatelessWidget {
     return ServicesConfig(
       child: RepositoriesConfig(
         child: BlocConfig(
-          child: InternetObserverWidget(
-            child: FirebaseConfig(
-              child: BlocBuilder<ThemeCubit, ThemeData>(
-                builder: (context, state) {
-                  return MaterialApp(
-                    title: 'Cobro',
-                    theme: state,
-                    routes: AppRoutes.routes,
-                    initialRoute: AppRoutes.initialRoute,
-                  );
-                },
-              ),
+          child: FirebaseConfig(
+            child: BlocBuilder<ThemeCubit, ThemeData>(
+              builder: (context, state) {
+                return MaterialApp(
+                  title: 'Cobro',
+                  theme: state,
+                  routes: AppRoutes.routes,
+                  initialRoute: AppRoutes.initialRoute,
+                );
+              },
             ),
           ),
         ),

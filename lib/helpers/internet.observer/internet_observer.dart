@@ -39,12 +39,15 @@ class InternetObserver {
       isOnline = false;
     }
     //adding data obtained of search
-    _controller.sink.add(
-      ConnectivityDataState(
-        connectivity: result,
-        isOnline: isOnline,
-      ),
-    );
+    if (result == ConnectivityResult.wifi ||
+        result == ConnectivityResult.mobile) {
+      _controller.sink.add(
+        ConnectivityDataState(
+          connectivity: result,
+          isOnline: isOnline,
+        ),
+      );
+    }
   }
 
   void disposeStream() => _controller.close();
