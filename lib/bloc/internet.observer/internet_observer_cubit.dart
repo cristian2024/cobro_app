@@ -13,14 +13,17 @@ class InternetObserverCubit extends Cubit<ConnectivityDataState> {
 class ConnectivityDataState extends Equatable {
   final ConnectivityResult connectivity;
   final bool isOnline;
+  final DateTime? time;
   const ConnectivityDataState({
     required this.connectivity,
     required this.isOnline,
+    this.time,
   });
 
   const ConnectivityDataState.initial()
       : connectivity = ConnectivityResult.none,
-        isOnline = false;
+        isOnline = false,
+        time=null;
 
   bool get verifyOnline {
     return (connectivity == ConnectivityResult.mobile ||
@@ -32,5 +35,6 @@ class ConnectivityDataState extends Equatable {
   List<Object?> get props => [
         connectivity,
         isOnline,
+        time,
       ];
 }
