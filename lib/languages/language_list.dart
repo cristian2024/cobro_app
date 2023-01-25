@@ -7,4 +7,11 @@ class LanguageList {
     LanguageEnUs(),
     LanguageEsCo(),
   ];
+
+  Map<String, Language> get getLanguages {
+    return {
+      LanguageEnUs().languageName: LanguageEnUs(),
+      LanguageEsCo().languageName: LanguageEsCo(),
+    };
+  }
 }

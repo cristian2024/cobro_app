@@ -2,7 +2,6 @@ import 'package:cobro_app/bloc/authentication/authentication_bloc.dart';
 import 'package:cobro_app/bloc/bloc_config.dart';
 import 'package:cobro_app/bloc/languages/languages_cubit.dart';
 import 'package:cobro_app/exceptions/authentication/auth_code_converter.dart';
-import 'package:cobro_app/exceptions/authentication/auth_exceptions.dart';
 import 'package:cobro_app/languages/language.dart';
 import 'package:cobro_app/ui/authentication/signin/widgets/signin_form.dart';
 import 'package:cobro_app/ui/authentication/common/sign_options.dart';

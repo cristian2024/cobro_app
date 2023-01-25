@@ -1,4 +1,5 @@
 import 'package:cobro_app/services/authentication/authentication_service.dart';
+import 'package:cobro_app/services/languages/language_service.dart';
 import 'package:cobro_app/services/theme/theme_service.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -19,6 +20,9 @@ class ServicesConfig extends StatelessWidget {
         ),
         Provider(
           create: (context) => ThemeService(),
+        ),
+        Provider(
+          create: (context) => LanguageService(),
         ),
         Provider(
           create: (context) => AuthenticationService(
