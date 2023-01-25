@@ -8,6 +8,7 @@ import 'package:cobro_app/ui/authentication/common/sign_options.dart';
 import 'package:cobro_app/ui/authentication/signup/signup_screen.dart';
 import 'package:cobro_app/ui/main.ui/initial_page.dart';
 import 'package:cobro_app/utils/size_screen.dart';
+import 'package:cobro_app/utils/theme_utils.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -74,7 +75,10 @@ class _SigninScreenState extends State<SigninScreen> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(state.signInTitle),
+                    Text(
+                      state.signInTitle,
+                      style: getHeadLine1(Theme.of(context)),
+                    ),
                     const SigninForm(),
                     SizedBox(
                       height: SizeScreens.height(context, 40),
@@ -113,8 +117,7 @@ class _NeedAccount extends StatelessWidget {
             children: <TextSpan>[
               TextSpan(
                 text: state.signUpTitle.toUpperCase(),
-                //TODO - use theme texstyle as basis
-                style: const TextStyle(
+                style: getBodyText2(Theme.of(context)).copyWith(
                   decoration: TextDecoration.underline,
                 ),
                 recognizer: TapGestureRecognizer()

@@ -3,7 +3,7 @@ import 'package:cobro_app/bloc/languages/languages_cubit.dart';
 import 'package:cobro_app/languages/language.dart';
 import 'package:cobro_app/models/user/user_model.dart';
 import 'package:cobro_app/ui/authentication/signup/signup_screen.dart';
-import 'package:cobro_app/ui/common/widgets/buttons/common_button.dart';
+import 'package:cobro_app/ui/common/widgets/buttons/minimalist_text_button.dart';
 import 'package:cobro_app/ui/common/widgets/forms/common_password_field.dart';
 import 'package:cobro_app/ui/common/widgets/forms/common_text_form_field.dart';
 import 'package:cobro_app/utils/size_screen.dart';
@@ -57,7 +57,7 @@ class _SignupFormState extends State<SignupForm> {
               CommonTFField(
                 labelText: state.authEmailLabel,
                 controller: _emailController,
-                validator: (value)=> Validators.emailValidator(value,state),
+                validator: (value) => Validators.emailValidator(value, state),
                 autovalidateMode: AutovalidateMode.onUserInteraction,
               ),
               CommonPasswordField(
@@ -68,9 +68,9 @@ class _SignupFormState extends State<SignupForm> {
               SizedBox(
                 height: SizeScreens.height(context, 16),
               ),
-              CommonButton(
-                text: state.signUpButtonText,
-                onClick: _validateAndSend,
+              MinimalistTextButton(
+                state.signUpButtonText,
+                onTap: _validateAndSend,
               ),
             ],
           ),

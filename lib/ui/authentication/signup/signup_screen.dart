@@ -4,6 +4,7 @@ import 'package:cobro_app/ui/authentication/common/sign_options.dart';
 import 'package:cobro_app/ui/authentication/signin/signin_screen.dart';
 import 'package:cobro_app/ui/authentication/signup/widgets/signup_form.dart';
 import 'package:cobro_app/utils/size_screen.dart';
+import 'package:cobro_app/utils/theme_utils.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -27,16 +28,17 @@ class _SignupScreenState extends State<SignupScreen> {
         return Scaffold(
           body: SafeArea(
             child: Padding(
-              padding: EdgeInsets.all(
-                SizeScreens.width(context, 16),
-              ).copyWith(
-                left: SizeScreens.width(context, 20),
-                right: SizeScreens.width(context, 20),
+              padding: EdgeInsets.symmetric(
+                vertical: SizeScreens.width(context, 16),
+                horizontal: 20,
               ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(state.signUpTitle),
+                  Text(
+                    state.signUpTitle,
+                    style: getHeadLine1(Theme.of(context)),
+                  ),
                   const SignupForm(),
                   SizedBox(
                     height: SizeScreens.height(context, 40),
@@ -74,8 +76,7 @@ class _AlreadyUser extends StatelessWidget {
             children: <TextSpan>[
               TextSpan(
                 text: state.signInTitle.toUpperCase(),
-                //TODO - use theme texstyle as basis
-                style: const TextStyle(
+                style: getBodyText2(Theme.of(context)).copyWith(
                   decoration: TextDecoration.underline,
                 ),
                 recognizer: TapGestureRecognizer()

@@ -10,56 +10,50 @@ enum ThemeOptions {
 }
 
 class AppThemes {
-  TextTheme globalTextTheme({required TextTheme initial}) {
-    final TextStyle initialTextStyle =  GoogleFonts.openSans();
-    return initial.copyWith(
-      headline1: initialTextStyle.copyWith(
-        fontWeight: FontWeight.w600,
-        fontSize: 28.0,
-        color: const Color(0xff072448),
-      ),
-      headline2: initialTextStyle.copyWith(
-        fontWeight: FontWeight.w600,
-        fontSize: 24.0,
-        color: const Color(0xff072448),
-      ),
-      headline3: initialTextStyle.copyWith(
-        fontWeight: FontWeight.w600,
-        fontSize: 20.0,
-        color: const Color(0xff072448),
-      ),
-      bodyText1: initialTextStyle.copyWith(
-        fontWeight: FontWeight.w600,
-        fontSize: 14.0,
-        color: const Color(0xff072448),
-      ),
-      bodyText2: initialTextStyle.copyWith(
+  static final _familyFont = GoogleFonts.lato();
+
+  static TextTheme _themeBasis(ThemeData theme) {
+    return theme.textTheme.copyWith(
+      bodyText1: _familyFont.copyWith(
+        fontSize: 14,
         fontWeight: FontWeight.w400,
-        fontSize: 14.0,
-        color: const Color(0xff072448),
       ),
-      subtitle1: initialTextStyle.copyWith(
+      bodyText2: _familyFont.copyWith(
+        fontSize: 16,
         fontWeight: FontWeight.w400,
-        fontSize: 16.0,
-        color: const Color(0xff072448),
       ),
-      subtitle2: initialTextStyle.copyWith(
-        fontWeight: FontWeight.w700,
-        fontSize: 18.0,
-        color: const Color(0xff072448),
+      headline3: _familyFont.copyWith(
+        fontSize: 20,
+        fontWeight: FontWeight.w500,
       ),
+      headline2: _familyFont.copyWith(
+        fontSize: 22,
+        fontWeight: FontWeight.w500,
+      ),
+      headline1: _familyFont.copyWith(
+        fontSize: 24,
+        fontWeight: FontWeight.w600,
+      ),
+      
     );
   }
 
-  static final ThemeData _darkTheme = ThemeData.dark().copyWith(
+  static TextTheme get _darkTextTheme => _themeBasis(ThemeData.dark());
+
+  static TextTheme get _lightTextTheme => _themeBasis(ThemeData.light());
+
+  static TextTheme get _mediumTextTheme => _themeBasis(ThemeData.light());
+
+  static final _darkTheme = ThemeData.dark().copyWith(
     // backgroundColor: Colors.black,
     scaffoldBackgroundColor: Colors.grey.shade900,
     appBarTheme: const AppBarTheme(
       backgroundColor: Color.fromRGBO(62, 6, 95, 1),
-      iconTheme:  IconThemeData(
+      iconTheme: IconThemeData(
         color: CColors.paleLavender,
       ),
     ),
+    textTheme: _darkTextTheme,
     drawerTheme: const DrawerThemeData(
       backgroundColor: CColors.deepViolet,
     ),
@@ -74,10 +68,11 @@ class AppThemes {
     scaffoldBackgroundColor: CColors.paleLavender,
     appBarTheme: const AppBarTheme(
       backgroundColor: CColors.vodka,
-      iconTheme:  IconThemeData(
+      iconTheme: IconThemeData(
         color: CColors.deepViolet,
       ),
     ),
+    textTheme: _lightTextTheme,
     drawerTheme: const DrawerThemeData(
       backgroundColor: CColors.vodka,
     ),
@@ -91,13 +86,14 @@ class AppThemes {
     scaffoldBackgroundColor: CColors.blueBell,
     appBarTheme: const AppBarTheme(
       backgroundColor: CColors.purpleNavy,
-      iconTheme:  IconThemeData(
+      iconTheme: IconThemeData(
         color: CColors.aliceBlue,
       ),
     ),
     drawerTheme: const DrawerThemeData(
       backgroundColor: CColors.purpleNavy,
     ),
+    textTheme: _mediumTextTheme,
     iconTheme: const IconThemeData(
       color: CColors.aliceBlue,
     ),
@@ -105,49 +101,6 @@ class AppThemes {
   );
   ThemeData get globalTheme => _lightTheme;
 }
-
-// /// App's global theme.
-// class AppTheme {
-//   late TextStyle _initialTextStyle;
-//   AppTheme({
-//     TextStyle? initialTextStyle,
-//   }) {
-//     _initialTextStyle = initialTextStyle ?? GoogleFonts.openSans();
-//   }
-//   ColorScheme _colorScheme(ColorScheme? initialColorScheme) {
-//     return (initialColorScheme ?? const ColorScheme.dark()).copyWith(
-//       tertiary: const Color(0xff88adfe),
-//       onPrimary: const Color(0xffffffff),
-//       primary: const Color(0xFF416AFB),
-//       onBackground: const Color(0xffffffff),
-//       secondary: const Color(0xff072448),
-//       primaryContainer: Colors.white,
-//       secondaryContainer: const Color(0xfff5f2f0),
-//       tertiaryContainer: const Color(0xff52c4c3),
-//     );
-//   }
-
-//   ThemeData globalTheme() {
-//     ThemeData theme = ThemeData.dark();
-//     return theme.copyWith(
-//       primaryColor: const Color.fromRGBO(65, 106, 251, 1),
-//       scaffoldBackgroundColor: const Color(0xfffffdfa),
-//       dividerColor: const Color(0xff4F647E),
-//       colorScheme: _colorScheme(theme.colorScheme),
-//       textTheme: _globalTextTheme(theme.textTheme),
-//       appBarTheme: const AppBarTheme(
-//         iconTheme: IconThemeData(color: Color(0xFFFFFFFF)),
-//         backgroundColor: Color.fromRGBO(233, 223, 211, 1),
-//         centerTitle: false,
-//       ),
-//       dividerTheme: const DividerThemeData(
-//         thickness: 1.0,
-//         color: Color(0xffE0E0E0),
-//         space: 5.0,
-//       ),
-//     );
-//   }
-// }
 
 extension ThemeOption on AppThemes {
   static const Map<String, ThemeOptions> _strings = {
