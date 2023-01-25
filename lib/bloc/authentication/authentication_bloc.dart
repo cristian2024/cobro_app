@@ -44,12 +44,19 @@ class AuthenticationBloc
         userData: user,
         password: password,
       );
+
+      emit(
+        state.copyWith(
+          status: ReqStatus.success,
+          currentUserData: user,
+        ),
+      );
     } on AuthException catch (e) {
       emit(
         state.copyWith(
           status: ReqStatus.fail,
           exception: e,
-        ),  
+        ),
       );
     } catch (e) {
       emit(
