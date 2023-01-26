@@ -1,16 +1,15 @@
 import 'package:cobro_app/bloc/languages/languages_cubit.dart';
 import 'package:cobro_app/helpers/internet.observer/internet_redirector.dart';
 import 'package:cobro_app/languages/language.dart';
-import 'package:cobro_app/ui/authentication/signin/signin_screen.dart';
-import 'package:cobro_app/ui/common/widgets/buttons/common_button.dart';
+import 'package:cobro_app/ui/accounts/account_screen.dart';
 import 'package:cobro_app/ui/main.ui/widgets/main_drawer.dart';
 import 'package:cobro_app/ui/main.ui/widgets/settings_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class InitialPage extends StatelessWidget {
-  const InitialPage({super.key});
-  static const String routeName = '/initial_route_name';
+class MainPage extends StatelessWidget {
+  const MainPage({super.key});
+  static const routeName = '/initial_route_name';
   @override
   Widget build(BuildContext context) {
     return InternetRedirector(
@@ -33,22 +32,19 @@ class InitialPage extends StatelessWidget {
             ),
             drawer: const MainDrawer(),
             endDrawer: const SettingsDrawer(),
-            body: Column(
-              children: [
-                Expanded(
-                  child: Center(
-                    child: CommonButton(
-                      text: state.signInButtonText,
-                      onClick: () {
-                        Navigator.of(context).pushNamedAndRemoveUntil(
-                          SigninScreen.routeName,
-                          (route) => false,
-                        );
-                      },
-                    ),
+            body: const DefaultTabController(
+              length: 2,
+              child: TabBarView(
+                
+                children: [
+                  Tab(
+                    text: 'not alarm',
                   ),
-                ),
-              ],
+                  Tab(
+                    text: 'Alarm',
+                  )
+                ],
+              ),
             ),
           );
         },

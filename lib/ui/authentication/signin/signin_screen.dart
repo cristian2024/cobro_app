@@ -6,7 +6,7 @@ import 'package:cobro_app/languages/language.dart';
 import 'package:cobro_app/ui/authentication/signin/widgets/signin_form.dart';
 import 'package:cobro_app/ui/authentication/common/sign_options.dart';
 import 'package:cobro_app/ui/authentication/signup/signup_screen.dart';
-import 'package:cobro_app/ui/main.ui/initial_page.dart';
+import 'package:cobro_app/ui/main.ui/main_page.dart';
 import 'package:cobro_app/utils/size_screen.dart';
 import 'package:cobro_app/utils/theme_utils.dart';
 import 'package:flutter/gestures.dart';
@@ -57,7 +57,7 @@ class _SigninScreenState extends State<SigninScreen> {
             } else if (authState.status == ReqStatus.success) {
               if (authState.currentUserData != null) {
                 Navigator.of(context).pushNamedAndRemoveUntil(
-                  InitialPage.routeName,
+                  MainPage.routeName,
                   (route) => false,
                 );
               }
