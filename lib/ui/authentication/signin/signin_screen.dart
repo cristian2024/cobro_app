@@ -9,6 +9,7 @@ import 'package:cobro_app/ui/authentication/signup/signup_screen.dart';
 import 'package:cobro_app/ui/main.ui/main_page.dart';
 import 'package:cobro_app/utils/size_screen.dart';
 import 'package:cobro_app/utils/theme_utils.dart';
+import 'package:cobro_app/utils/utils.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -56,7 +57,7 @@ class _SigninScreenState extends State<SigninScreen> {
               _showSnackbar(mssg);
             } else if (authState.status == ReqStatus.success) {
               if (authState.currentUserData != null) {
-                Navigator.of(context).pushNamedAndRemoveUntil(
+                Utils.mainNav.currentState?.pushNamedAndRemoveUntil(
                   MainPage.routeName,
                   (route) => false,
                 );
@@ -122,7 +123,7 @@ class _NeedAccount extends StatelessWidget {
                 ),
                 recognizer: TapGestureRecognizer()
                   ..onTap = () {
-                    Navigator.of(context).pushNamed(
+                    Utils.mainNav.currentState?.pushNamed(
                       SignupScreen.routeName,
                     );
                   },

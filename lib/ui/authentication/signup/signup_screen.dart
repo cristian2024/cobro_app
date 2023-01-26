@@ -5,6 +5,7 @@ import 'package:cobro_app/ui/authentication/signin/signin_screen.dart';
 import 'package:cobro_app/ui/authentication/signup/widgets/signup_form.dart';
 import 'package:cobro_app/utils/size_screen.dart';
 import 'package:cobro_app/utils/theme_utils.dart';
+import 'package:cobro_app/utils/utils.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -81,10 +82,10 @@ class _AlreadyUser extends StatelessWidget {
                 ),
                 recognizer: TapGestureRecognizer()
                   ..onTap = () {
-                    if (Navigator.canPop(context)) {
-                      Navigator.pop(context);
+                    if (Utils.mainNav.currentState?.canPop() ?? false) {
+                      Utils.mainNav.currentState?.pop();
                     } else {
-                      Navigator.of(context).pushNamed(
+                      Utils.mainNav.currentState?.pushNamed(
                         SigninScreen.routeName,
                       );
                     }
