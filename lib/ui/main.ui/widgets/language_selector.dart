@@ -3,6 +3,7 @@ import 'package:cobro_app/languages/language.dart';
 import 'package:cobro_app/languages/language_list.dart';
 import 'package:cobro_app/ui/common/widgets/forms/common_dropdown_form_field.dart';
 import 'package:cobro_app/ui/common/widgets/language_container.dart';
+import 'package:cobro_app/utils/size_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -19,8 +20,8 @@ class LanguageSelector extends StatelessWidget {
             return Text(state.languageSelectorTitle);
           },
         ),
-        const SizedBox(
-          height: 10,
+        SizedBox(
+          height: SizeScreens.height(context, 20),
         ),
         BlocBuilder<LanguagesCubit, Language>(
           builder: (context, state) {

@@ -4,6 +4,7 @@ import 'package:cobro_app/languages/language.dart';
 import 'package:cobro_app/ui/authentication/signin/signin_screen.dart';
 import 'package:cobro_app/ui/common/widgets/buttons/common_button.dart';
 import 'package:cobro_app/ui/main.ui/widgets/main_drawer.dart';
+import 'package:cobro_app/ui/main.ui/widgets/settings_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -30,7 +31,8 @@ class InitialPage extends StatelessWidget {
                 ),
               ],
             ),
-            endDrawer: const MainDrawer(),
+            drawer: const MainDrawer(),
+            endDrawer: const SettingsDrawer(),
             body: Column(
               children: [
                 Expanded(

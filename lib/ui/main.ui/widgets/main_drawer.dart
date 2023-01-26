@@ -1,5 +1,3 @@
-import 'package:cobro_app/ui/main.ui/widgets/language_selector.dart';
-import 'package:cobro_app/ui/main.ui/widgets/theme_selector.dart';
 import 'package:flutter/material.dart';
 
 class MainDrawer extends StatelessWidget {
@@ -12,10 +10,7 @@ class MainDrawer extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: ListView(
-            children: const [
-              ThemeSelector(),
-              LanguageSelector(),
-            ],
+            children: const [],
           ),
         ),
       ),

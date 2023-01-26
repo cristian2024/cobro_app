@@ -3,6 +3,7 @@ import 'package:cobro_app/bloc/theme/theme_cubit.dart';
 import 'package:cobro_app/languages/language.dart';
 import 'package:cobro_app/ui/theme.dart';
 import 'package:cobro_app/ui/common/widgets/buttons/minimalist_button.dart';
+import 'package:cobro_app/utils/size_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -19,8 +20,8 @@ class ThemeSelector extends StatelessWidget {
             return Text(state.themeSelectorTitle);
           },
         ),
-        const SizedBox(
-          height: 10,
+        SizedBox(
+          height: SizeScreens.height(context, 20),
         ),
         BlocBuilder<ThemeCubit, ThemeData>(
           builder: (context, state) {
