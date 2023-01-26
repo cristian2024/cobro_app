@@ -1,7 +1,7 @@
 import 'package:cobro_app/bloc/internet.observer/internet_observer_cubit.dart';
 import 'package:cobro_app/helpers/internet.observer/internet_observer.dart';
 import 'package:cobro_app/ui/common/screens/no_internet.dart';
-import 'package:cobro_app/ui/main.ui/initial_page.dart';
+import 'package:cobro_app/ui/main.ui/main_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -56,10 +56,10 @@ class _InternetRedirectorState extends State<InternetRedirector> {
               );
             }
           } else {
-            if (routeName != InitialPage.routeName) {
+            if (routeName != MainPage.routeName) {
               Navigator.pushNamedAndRemoveUntil(
                 context,
-                InitialPage.routeName,
+                MainPage.routeName,
                 (route) => false,
               );
             }

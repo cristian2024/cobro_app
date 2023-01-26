@@ -22,6 +22,14 @@ class AppThemes {
         fontSize: 16,
         fontWeight: FontWeight.w400,
       ),
+      subtitle1: _familyFont.copyWith(
+        fontSize: 16,
+        fontWeight: FontWeight.w500,
+      ),
+      subtitle2: _familyFont,
+      headline6: _familyFont,
+      headline5: _familyFont,
+      headline4: _familyFont,
       headline3: _familyFont.copyWith(
         fontSize: 20,
         fontWeight: FontWeight.w500,
@@ -34,15 +42,34 @@ class AppThemes {
         fontSize: 24,
         fontWeight: FontWeight.w600,
       ),
-      
     );
   }
 
-  static TextTheme get _darkTextTheme => _themeBasis(ThemeData.dark());
+  static TextTheme get _darkTextTheme => _themeBasis(ThemeData.dark()).copyWith(
+        subtitle1: _familyFont.copyWith(
+          fontSize: 16,
+          fontWeight: FontWeight.w500,
+          color: CColors.paleLavender,
+        ),
+      );
 
-  static TextTheme get _lightTextTheme => _themeBasis(ThemeData.light());
+  static TextTheme get _lightTextTheme =>
+      _themeBasis(ThemeData.light()).copyWith(
+        subtitle1: _familyFont.copyWith(
+          fontSize: 16,
+          fontWeight: FontWeight.w500,
+          color: CColors.deepViolet,
+        ),
+      );
 
-  static TextTheme get _mediumTextTheme => _themeBasis(ThemeData.light());
+  static TextTheme get _mediumTextTheme =>
+      _themeBasis(ThemeData.light()).copyWith(
+        subtitle1: _familyFont.copyWith(
+          fontSize: 16,
+          fontWeight: FontWeight.w500,
+          color: CColors.aliceBlue,
+        ),
+      );
 
   static final _darkTheme = ThemeData.dark().copyWith(
     // backgroundColor: Colors.black,
@@ -53,6 +80,7 @@ class AppThemes {
         color: CColors.paleLavender,
       ),
     ),
+    dividerColor: CColors.paleLavender,
     textTheme: _darkTextTheme,
     drawerTheme: const DrawerThemeData(
       backgroundColor: CColors.deepViolet,
@@ -62,7 +90,7 @@ class AppThemes {
     ),
     colorScheme: const ColorScheme.dark().copyWith(),
   );
-  static final ThemeData _lightTheme = ThemeData.light().copyWith(
+  static final _lightTheme = ThemeData.light().copyWith(
     // backgroundColor: Colors.black,
     // scaffoldBackgroundColor: Colors.grey.shade900,
     scaffoldBackgroundColor: CColors.paleLavender,
@@ -79,10 +107,11 @@ class AppThemes {
     iconTheme: const IconThemeData(
       color: CColors.deepViolet,
     ),
+    dividerColor: CColors.deepViolet,
     colorScheme: const ColorScheme.dark().copyWith(),
   );
 
-  static final ThemeData _mediumTheme = ThemeData.light().copyWith(
+  static final _mediumTheme = ThemeData.light().copyWith(
     scaffoldBackgroundColor: CColors.blueBell,
     appBarTheme: const AppBarTheme(
       backgroundColor: CColors.purpleNavy,
@@ -97,6 +126,7 @@ class AppThemes {
     iconTheme: const IconThemeData(
       color: CColors.aliceBlue,
     ),
+    dividerColor: CColors.aliceBlue,
     colorScheme: const ColorScheme.dark().copyWith(),
   );
   ThemeData get globalTheme => _lightTheme;

@@ -27,6 +27,9 @@ class LanguageEnUs extends Language {
     signUpButtonText = 'Sign up';
     signUpTitle = 'Sign up';
 
+    //accounts
+    accountDrawerText = 'Accounts';
+
     //others
     themeSelectorTitle = 'Theme selector';
     languageSelectorTitle = 'Language selector';
