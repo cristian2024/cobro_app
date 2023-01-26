@@ -22,7 +22,10 @@ class SettingsDrawer extends StatelessWidget {
             children: [
               const ThemeSelector(),
               SizedBox(
-                height: SizeScreens.height(context, 40),
+                height: SizeScreens.height(
+                  context,
+                  40,
+                ),
               ),
               const LanguageSelector(),
             ],

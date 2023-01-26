@@ -22,6 +22,15 @@ class AppThemes {
         fontSize: 16,
         fontWeight: FontWeight.w400,
       ),
+
+      subtitle1: _familyFont.copyWith(
+        fontSize: 16,
+        fontWeight: FontWeight.w500,
+      ),
+      subtitle2: _familyFont,
+      headline6: _familyFont,
+      headline5: _familyFont,
+      headline4: _familyFont,
       headline3: _familyFont.copyWith(
         fontSize: 20,
         fontWeight: FontWeight.w500,
@@ -34,7 +43,6 @@ class AppThemes {
         fontSize: 24,
         fontWeight: FontWeight.w600,
       ),
-      
     );
   }
 

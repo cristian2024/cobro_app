@@ -23,10 +23,13 @@ abstract class Language {
     signUpTitle = map[Language.signUpTitleJson] ?? 'Sign up';
     signUpButtonText = map[Language.signUpButtonTextJson] ?? signInButtonText;
 
+    //accounts
+    accountDrawerText = map[Language.accountDrawerJson] ?? accountDrawerText;
+
     //others
     themeSelectorTitle =
         map[Language.themeSelectorTitleJson] ?? 'Theme selector';
-    languageSelectorTitle =
+    languageSelectorTitle = 
         map[Language.languageSelectorTitleJson] ?? 'Language selector';
 
     //errors in forms
@@ -57,6 +60,9 @@ abstract class Language {
   //signup values
   String signUpTitle = 'Sign up';
   String signUpButtonText = 'Sign up';
+
+  //account values
+  String accountDrawerText = 'Accounts';
 
   //others
   String themeSelectorTitle = 'Theme selector';
@@ -91,6 +97,9 @@ abstract class Language {
   //signup values
   static String get signUpTitleJson => 'sign_up_title';
   static String get signUpButtonTextJson => 'sign_up_button_text';
+
+  //accounts
+  static String get accountDrawerJson => 'account_drawer_text';
 
   //others
   static String get themeSelectorTitleJson => 'theme_selector_title';

@@ -27,6 +27,9 @@ class LanguageEsCo extends Language {
     signUpTitle = 'Registrate';
     signUpButtonText = 'Registrate';
 
+    //accounts
+    accountDrawerText = 'Cuentas';
+
     //others
     themeSelectorTitle = 'Selector de tema';
     languageSelectorTitle = 'Selector de lenguaje';
