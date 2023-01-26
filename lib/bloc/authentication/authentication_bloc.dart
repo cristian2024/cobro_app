@@ -1,5 +1,5 @@
 import 'package:cobro_app/bloc/bloc_config.dart';
-import 'package:cobro_app/exceptions/authentication/auth_exceptions.dart';
+import 'package:cobro_app/others/exceptions/authentication/auth_exceptions.dart';
 import 'package:cobro_app/models/user/user_model.dart';
 import 'package:cobro_app/repository/authentication/authentication_repository.dart';
 import 'package:cobro_app/services/authentication/authentication_service.dart';

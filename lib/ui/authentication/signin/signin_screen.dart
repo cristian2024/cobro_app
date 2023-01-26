@@ -1,7 +1,7 @@
 import 'package:cobro_app/bloc/authentication/authentication_bloc.dart';
 import 'package:cobro_app/bloc/bloc_config.dart';
 import 'package:cobro_app/bloc/languages/languages_cubit.dart';
-import 'package:cobro_app/exceptions/authentication/auth_code_converter.dart';
+import 'package:cobro_app/others/exceptions/authentication/auth_code_converter.dart';
 import 'package:cobro_app/languages/language.dart';
 import 'package:cobro_app/ui/authentication/signin/widgets/signin_form.dart';
 import 'package:cobro_app/ui/authentication/common/sign_options.dart';
@@ -9,6 +9,7 @@ import 'package:cobro_app/ui/authentication/signup/signup_screen.dart';
 import 'package:cobro_app/ui/main.ui/main_page.dart';
 import 'package:cobro_app/utils/size_screen.dart';
 import 'package:cobro_app/utils/theme_utils.dart';
+import 'package:cobro_app/utils/utils.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -56,7 +57,7 @@ class _SigninScreenState extends State<SigninScreen> {
               _showSnackbar(mssg);
             } else if (authState.status == ReqStatus.success) {
               if (authState.currentUserData != null) {
-                Navigator.of(context).pushNamedAndRemoveUntil(
+                Utils.mainNav.currentState?.pushNamedAndRemoveUntil(
                   MainPage.routeName,
                   (route) => false,
                 );
@@ -122,7 +123,7 @@ class _NeedAccount extends StatelessWidget {
                 ),
                 recognizer: TapGestureRecognizer()
                   ..onTap = () {
-                    Navigator.of(context).pushNamed(
+                    Utils.mainNav.currentState?.pushNamed(
                       SignupScreen.routeName,
                     );
                   },

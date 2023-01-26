@@ -4,6 +4,7 @@ import 'package:cobro_app/config/firebase_config.dart';
 import 'package:cobro_app/services/services_config.dart';
 import 'package:cobro_app/repository/repositories_config.dart';
 import 'package:cobro_app/ui/routes.dart';
+import 'package:cobro_app/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -23,6 +24,7 @@ class CobroApp extends StatelessWidget {
             child: BlocBuilder<ThemeCubit, ThemeData>(
               builder: (context, state) {
                 return MaterialApp(
+                  navigatorKey: Utils.mainNav,
                   title: 'Cobro',
                   theme: state,
                   routes: AppRoutes.routes,

@@ -2,6 +2,7 @@ import 'package:cobro_app/bloc/internet.observer/internet_observer_cubit.dart';
 import 'package:cobro_app/helpers/internet.observer/internet_observer.dart';
 import 'package:cobro_app/ui/common/screens/no_internet.dart';
 import 'package:cobro_app/ui/main.ui/main_page.dart';
+import 'package:cobro_app/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -49,16 +50,15 @@ class _InternetRedirectorState extends State<InternetRedirector> {
           String routeName = ModalRoute.of(context)?.settings.name ?? '';
           if (!state.verifyOnline) {
             if (routeName != '/${NoInternet.routeName}') {
-              Navigator.pushNamedAndRemoveUntil(
-                context,
+              Utils.mainNav.currentState?.pushNamedAndRemoveUntil(
                 '/${NoInternet.routeName}',
                 (route) => false,
               );
             }
           } else {
             if (routeName != MainPage.routeName) {
-              Navigator.pushNamedAndRemoveUntil(
-                context,
+              Utils.mainNav.currentState?.pushNamedAndRemoveUntil(
+                
                 MainPage.routeName,
                 (route) => false,
               );
