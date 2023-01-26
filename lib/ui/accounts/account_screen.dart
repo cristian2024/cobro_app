@@ -1,3 +1,6 @@
+import 'package:cobro_app/models/accounts/account_model.dart';
+import 'package:cobro_app/others/development/data/accounts_data.dart';
+import 'package:cobro_app/ui/accounts/widgets/account_list_card.dart';
 import 'package:cobro_app/ui/common/widgets/buttons/minimalist_button.dart';
 import 'package:cobro_app/ui/main.ui/main_page.dart';
 import 'package:flutter/material.dart';
@@ -52,11 +55,19 @@ class _AccountScreensState extends State<AccountScreens>
             });
           },
         ),
-        Container(
-          alignment: Alignment.center,
-          // ignore: prefer_const_constructors
-          child: Text(
-            'hola',
+        Expanded(
+          child: Container(
+            alignment: Alignment.center,
+            // ignore: prefer_const_constructors
+            child: ListView.builder(
+              itemCount: AccData.listData.length,
+              itemBuilder: (context, index) {
+                AccountModel account = AccData.listData[index];
+                return AccountListCard(
+                  account: AccData.listData[index],
+                );
+              },
+            ),
           ),
         ),
       ],

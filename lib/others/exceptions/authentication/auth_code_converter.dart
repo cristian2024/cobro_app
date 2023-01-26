@@ -1,4 +1,4 @@
-import 'package:cobro_app/exceptions/authentication/auth_exceptions.dart';
+import 'package:cobro_app/others/exceptions/authentication/auth_exceptions.dart';
 import 'package:cobro_app/languages/language.dart';
 import 'package:cobro_app/services/authentication/authentication_service.dart';
 
