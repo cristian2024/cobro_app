@@ -1,6 +1,6 @@
 import 'package:cobro_app/bloc/languages/languages_cubit.dart';
 import 'package:cobro_app/languages/language.dart';
-import 'package:cobro_app/ui/accounts/account_screen.dart';
+import 'package:cobro_app/ui/accounts/screens/accounts_screen.dart';
 import 'package:cobro_app/ui/main.ui/widgets/drawer_button.dart';
 import 'package:cobro_app/utils/utils.dart';
 import 'package:flutter/material.dart';
@@ -24,7 +24,7 @@ class AccountDrawerButton extends StatelessWidget {
           onTap: onTap ??
               () {
                 Utils.drawerNav.currentState?.pushNamed(
-                  AccountScreens.routeName,
+                  AccountsScreen.routeName,
                 );
                 Utils.mainNav.currentState?.pop();
               },

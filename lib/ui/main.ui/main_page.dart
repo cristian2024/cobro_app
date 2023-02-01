@@ -1,7 +1,9 @@
 import 'package:cobro_app/bloc/languages/languages_cubit.dart';
 import 'package:cobro_app/helpers/internet.observer/internet_redirector.dart';
 import 'package:cobro_app/languages/language.dart';
-import 'package:cobro_app/ui/accounts/account_screen.dart';
+import 'package:cobro_app/models/accounts/account_model.dart';
+import 'package:cobro_app/ui/accounts/screens/account_screen.dart';
+import 'package:cobro_app/ui/accounts/screens/accounts_screen.dart';
 import 'package:cobro_app/ui/main.ui/widgets/main_drawer.dart';
 import 'package:cobro_app/ui/main.ui/widgets/settings_drawer.dart';
 import 'package:cobro_app/utils/utils.dart';
@@ -35,14 +37,19 @@ class MainPage extends StatelessWidget {
             endDrawer: const SettingsDrawer(),
             body: Navigator(
               key: Utils.drawerNav,
-              initialRoute: '/$routeName/${AccountScreens.routeName}',
+              initialRoute: '/$routeName/${AccountsScreen.routeName}',
               onGenerateRoute: (settings) {
                 Widget page = Container();
+                final arguments = settings.arguments;
                 switch (settings.name) {
-                  case AccountScreens.routeName:
-                    page = const AccountScreens();
+                  case AccountsScreen.routeName:
+                    page = const AccountsScreen();
                     break;
-
+                  case AccountScreen.routeName:
+                    if (arguments is AccountModel) {
+                      page = AccountScreen(account: arguments);
+                    }
+                    break;
                   default:
                     page = Container();
                     break;

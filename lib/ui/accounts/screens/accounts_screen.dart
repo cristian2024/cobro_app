@@ -5,16 +5,18 @@ import 'package:cobro_app/ui/common/widgets/buttons/minimalist_button.dart';
 import 'package:cobro_app/ui/main.ui/main_page.dart';
 import 'package:flutter/material.dart';
 
-class AccountScreens extends StatefulWidget {
-  const AccountScreens({super.key});
+class AccountsScreen extends StatefulWidget {
+  const AccountsScreen({super.key});
+
+  static const heroTag = 'account_tag';
 
   static const routeName = '${MainPage.routeName}/accounts';
 
   @override
-  State<AccountScreens> createState() => _AccountScreensState();
+  State<AccountsScreen> createState() => _AccountsScreenState();
 }
 
-class _AccountScreensState extends State<AccountScreens>
+class _AccountsScreenState extends State<AccountsScreen>
     with SingleTickerProviderStateMixin {
   bool isList = true;
 
@@ -64,7 +66,7 @@ class _AccountScreensState extends State<AccountScreens>
               itemBuilder: (context, index) {
                 AccountModel account = AccData.listData[index];
                 return AccountListCard(
-                  account: AccData.listData[index],
+                  account: account,
                 );
               },
             ),
