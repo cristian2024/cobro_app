@@ -13,10 +13,13 @@ abstract class Language {
     authPasswordLabel = map[Language.signInPasswordLabelJson] ?? 'Password';
     authEmailLabel = map[Language.authEmailLabelJson] ?? authEmailLabel;
     authAlreadyUser = map[Language.authAlreadyUserJson] ?? authAlreadyUser;
+    authNeedAccount = map[Language.authNeedAccountJson] ?? authNeedAccount;
+    authOptionsTitle = map[Language.authOptionsTitleJson] ?? 'Or use';
+
+    signOutText = map[Language.signOutJson] ?? signOutText;
 
     //signin options
     signInTitle = map[Language.signInTitleJson] ?? 'Sign in';
-    authOptionsTitle = map[Language.authOptionsTitleJson] ?? 'Or use';
     signInButtonText = map[Language.signInButtonTextJson] ?? 'Sign in';
 
     //signup options
@@ -29,7 +32,7 @@ abstract class Language {
     //others
     themeSelectorTitle =
         map[Language.themeSelectorTitleJson] ?? 'Theme selector';
-    languageSelectorTitle = 
+    languageSelectorTitle =
         map[Language.languageSelectorTitleJson] ?? 'Language selector';
 
     //errors in forms
@@ -52,6 +55,8 @@ abstract class Language {
   String authAlreadyUser = 'Already a user?';
   String authNeedAccount = 'Need an account?';
   String authOptionsTitle = 'Or use';
+  
+  String signOutText = 'Sign out';
 
   //signin values
   String signInTitle = 'Sign in';
@@ -89,6 +94,7 @@ abstract class Language {
   static String get authAlreadyUserJson => 'auth_already_user';
   static String get authNeedAccountJson => 'auth_need_account';
   static String get authOptionsTitleJson => 'auth_options_title';
+  static String get signOutJson => 'sign_out_text';
 
   //signin values
   static String get signInTitleJson => 'sign_in_title';

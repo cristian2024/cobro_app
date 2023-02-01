@@ -19,6 +19,8 @@ class LanguageEsCo extends Language {
     authNeedAccount = 'Necesitas una cuenta?';
     authOptionsTitle = 'O usa';
 
+    signOutText = 'Cerrar sesion';
+
     //sign in
     signInTitle = 'Inicia sesión';
     signInButtonText = 'Iniciar';

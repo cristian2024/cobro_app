@@ -1,4 +1,5 @@
 import 'package:cobro_app/ui/accounts/widgets/account_drawer_button.dart';
+import 'package:cobro_app/ui/authentication/common/widgets/sign_drawer_button.dart';
 import 'package:flutter/material.dart';
 
 class MainDrawer extends StatelessWidget {
@@ -12,9 +13,16 @@ class MainDrawer extends StatelessWidget {
           padding: const EdgeInsets.symmetric(
             vertical: 16.0,
           ),
-          child: ListView(
-            children: const [
-              AccountDrawerButton(),
+          child: Column(
+            children: [
+              Expanded(
+                child: ListView(
+                  children: const [
+                    AccountDrawerButton(),
+                  ],
+                ),
+              ),
+              const SignDrawerButton(),
             ],
           ),
         ),

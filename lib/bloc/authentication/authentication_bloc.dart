@@ -18,7 +18,7 @@ class AuthenticationBloc
     required this.repository,
   }) : super(const AuthenticationState()) {
     on<SigninWithEmail>((event, emit) => _signInWithGmail(emit));
-    on<SignOut>((event, emit) => _signOut());
+    on<SignOutEvent>((event, emit) => _signOut(emit));
     on<SignUpWithFormEvent>(
       (event, emit) {
         return _signUpWithForm(
@@ -57,8 +57,16 @@ class AuthenticationBloc
     );
   }
 
-  _signOut() async {
+  _signOut(
+    Emitter<AuthenticationState> emit,
+  ) async {
+    emit(
+      state.copyWith(status: ReqStatus.inProgress),
+    );
     service.signOut();
+    emit(
+      state.copyWith(status: ReqStatus.success),
+    );
   }
 }
 
