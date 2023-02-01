@@ -56,7 +56,7 @@ class SignOptions extends StatelessWidget {
             MinimalistButton(
               onTap: () {
                 BlocProvider.of<AuthenticationBloc>(context).add(
-                  SignOut(),
+                  SignOutEvent(),
                 );
               },
               child: Container(

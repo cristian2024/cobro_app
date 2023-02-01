@@ -23,6 +23,8 @@ class LanguageEnUs extends Language {
     authAlreadyUser = 'Already a user?';
     authNeedAccount = 'Need an account?';
 
+    signOutText = 'Sign out';
+
     //signup
     signUpButtonText = 'Sign up';
     signUpTitle = 'Sign up';

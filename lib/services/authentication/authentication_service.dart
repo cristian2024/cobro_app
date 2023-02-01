@@ -37,4 +37,8 @@ class AuthenticationService {
     await google.signOut();
     await _auth.signOut();
   }
+
+  bool isSign() {
+    return _auth.currentUser!=null;
+  }
 }

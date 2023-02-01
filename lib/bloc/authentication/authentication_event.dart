@@ -18,6 +18,7 @@ class SignUpWithFormEvent extends AuthenticationEvent {
     required this.password,
   });
 }
+
 class SignInWithFormEvent extends AuthenticationEvent {
   final UserModel user;
   final String password;
@@ -28,4 +29,4 @@ class SignInWithFormEvent extends AuthenticationEvent {
   });
 }
 
-class SignOut extends AuthenticationEvent {}
+class SignOutEvent extends AuthenticationEvent {}
