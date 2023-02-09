@@ -1,4 +1,5 @@
 import 'package:cobro_app/bloc/authentication/authentication_bloc.dart';
+import 'package:cobro_app/bloc/bloc_config.dart';
 import 'package:cobro_app/bloc/languages/languages_cubit.dart';
 import 'package:cobro_app/languages/language.dart';
 import 'package:cobro_app/models/user/user_model.dart';
@@ -6,6 +7,7 @@ import 'package:cobro_app/ui/authentication/signin/signin_screen.dart';
 import 'package:cobro_app/ui/common/widgets/buttons/minimalist_text_button.dart';
 import 'package:cobro_app/ui/common/widgets/forms/common_password_field.dart';
 import 'package:cobro_app/ui/common/widgets/forms/common_text_form_field.dart';
+import 'package:cobro_app/ui/common/widgets/loading.dart';
 import 'package:cobro_app/utils/size_screen.dart';
 import 'package:cobro_app/utils/validators.dart';
 import 'package:flutter/material.dart';
@@ -69,9 +71,17 @@ class _SigninFormState extends State<SigninForm> {
               SizedBox(
                 height: SizeScreens.height(context, 16),
               ),
-              MinimalistTextButton(
-                state.signInButtonText,
-                onTap: _validateAndSend,
+              BlocBuilder<AuthenticationBloc, AuthenticationState>(
+                builder: (context, authState) {
+                  if (authState.status == ReqStatus.inProgress) {
+                    return const Loading();
+                  }
+                  return MinimalistTextButton(
+                    state.signInButtonText,
+                    // child: ,
+                    onTap: _validateAndSend,
+                  );
+                },
               ),
             ],
           ),

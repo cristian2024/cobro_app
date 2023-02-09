@@ -108,6 +108,9 @@ extension FormMethods on AuthenticationBloc {
     required String password,
   }) async {
     try {
+      emit(
+        state.copyWith(status: ReqStatus.inProgress),
+      );
       await service.signInWithForm(
         userData: user,
         password: password,

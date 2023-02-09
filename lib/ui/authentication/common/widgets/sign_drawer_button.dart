@@ -1,8 +1,10 @@
 import 'package:cobro_app/bloc/authentication/authentication_bloc.dart';
+import 'package:cobro_app/bloc/bloc_config.dart';
 import 'package:cobro_app/bloc/languages/languages_cubit.dart';
 import 'package:cobro_app/languages/language.dart';
 import 'package:cobro_app/services/authentication/authentication_service.dart';
 import 'package:cobro_app/ui/authentication/signin/signin_screen.dart';
+import 'package:cobro_app/ui/common/widgets/loading.dart';
 import 'package:cobro_app/ui/main.ui/widgets/drawer_button.dart';
 import 'package:cobro_app/utils/utils.dart';
 import 'package:flutter/material.dart';
@@ -73,12 +75,19 @@ class _SignOut extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<LanguagesCubit, Language>(
       builder: (context, lang) {
-        return DrawerButton(
-          icon: Icons.exit_to_app,
-          text: lang.signOutText,
-          onTap: () {
-            BlocProvider.of<AuthenticationBloc>(context).add(
-              SignOutEvent(),
+        return BlocBuilder<AuthenticationBloc, AuthenticationState>(
+          builder: (context, state) {
+            if (state.status == ReqStatus.inProgress) {
+              return const Loading();
+            }
+            return DrawerButton(
+              icon: Icons.exit_to_app,
+              text: lang.signOutText,
+              onTap: () {
+                BlocProvider.of<AuthenticationBloc>(context).add(
+                  SignOutEvent(),
+                );
+              },
             );
           },
         );

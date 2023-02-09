@@ -52,11 +52,7 @@ class CobroApp extends StatelessWidget {
                   onUnknownRoute: (RouteSettings settings) {
                     return MaterialPageRoute<void>(
                       settings: settings,
-                      builder: (BuildContext context) => const Scaffold(
-                        body: Center(
-                          child: Text('Not Found'),
-                        ),
-                      ),
+                      builder: (BuildContext context) => const _UnknownRoute(),
                     );
                   },
                 );
